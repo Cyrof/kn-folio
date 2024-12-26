@@ -6,12 +6,13 @@
   --foreground-rgb: 0, 0, 0;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* --background: #1f1c24; */
+    --background: #1a1414
+    /* --foreground: #ededed; */
   }
-} */
+}
 
 body {
   color: var(--foreground);

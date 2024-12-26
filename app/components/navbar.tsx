@@ -14,7 +14,9 @@ const NavBar = () => {
     return (
         <nav>
             <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
-                <span>Icon Here</span>
+                <div className="text-red-400">
+                    <img src="/images/portfolio2.svg" alt="portfolio_logo" className="fill-current"/>
+                </div>
                 {/* can add hamburger menu */}
                 <div className="tabs hidden w-full md:block md:w-auto" id="navbar-default">
                     <ul className="flex flex-row space-x-4 p-4 font-medium">
@@ -28,7 +30,7 @@ const NavBar = () => {
                                 <Link
                                     href={href}
                                     aria-current={isActive(pathname, href) ? 'page' : undefined}
-                                    className={`px-3 py-2 rounded-md ${isActive(pathname, href) ? 'text-blue-500' : 'hover:text-blue-500'
+                                    className={`px-5 py-2 ${isActive(pathname, href) ? 'text-red-400' : 'hover:text-red-400 text-gray-200'
                                     }`}
                                 >
                                     {label}
