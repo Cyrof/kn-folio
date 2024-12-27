@@ -25,7 +25,7 @@ const NavBar = () => {
                             { href: '/skills', label: 'Skills' },
                             { href: '/projects', label: 'Projects' },
                             { href: '/contact', label: 'Contact' },
-                        ].map(({ href, label }) => (
+                        ].map(({ href, label }, index) => (
                             <li key={href}>
                                 <Link
                                     href={href}
@@ -33,25 +33,16 @@ const NavBar = () => {
                                     className={`px-5 py-2 ${isActive(pathname, href) ? 'text-red-400' : 'hover:text-red-400 text-gray-200'
                                     }`}
                                 >
-                                    {label}
+                                    <span className="text-red-400">
+                                        {index + 1}. 
+                                    </span>
+                                    <span className="ml-1">
+                                        {label}
+                                    </span>
                                 </Link>
                             </li>
                         ))}
                     </ul>
-                    {/* <ul className="font-medium flex flex-col p-4 md:p-0 md:flex-row md:space-x-8"> */}
-                        {/* <li> */}
-                            {/* <a href="#" className="block py-2 px-3 md:bg-transparent md:p-0" aria-current="page">About Me</a> */}
-                        {/* </li> */}
-                        {/* <li> */}
-                            {/* <a href="#">Skills</a> */}
-                        {/* </li> */}
-                        {/* <li> */}
-                            {/* <a href="">Projects</a> */}
-                        {/* </li> */}
-                        {/* <li> */}
-                            {/* <a href="">Contact</a> */}
-                        {/* </li> */}
-                    {/* </ul> */}
                 </div>
             </div>
         </nav>
