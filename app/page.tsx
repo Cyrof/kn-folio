@@ -7,12 +7,24 @@ export default function Home() {
       <header>
         <NavBar />
       </header>
-      <section className="main flex border border-blue-500 mt-8">
-        <section className="left md:w-1/2">
-          <h1 className="border border-purple-500 text-white h-72">Placeholder image here</h1>
+      <section className="main flex mt-20">
+        <section className="left md:w-1/2 flex items-center justify-center relative">
+        {/* will redo the image soon */}
+        
+          {/* outer circle shape  */}
+          <div className="relative w-[28rem] h-[28rem] overflow-hidden rounded-full bg-gray-700">
+            {/* image inside the shape */}
+            <div className="absolute w-[28rem] h-[28rem] flex items-center justify-center">
+              <img 
+                src="images/about_me_1.png" 
+                alt="about_me_1" 
+                className="w-[28rem] h-[28rem] object-cover"
+              />
+            </div>
+          </div>
         </section>
         <section className="right md:w-1/2">
-          <div className="text text-white text-left">
+          <div className="text text-white text-left m-auto">
             <span>Hello! I am</span> <br />
             <span>Keith.</span> <br />
             <span>I am an Ai and Cybersecurity specialist</span>
