@@ -7,12 +7,12 @@ export default function Home() {
       <header>
         <NavBar />
       </header>
-      <section className="main flex mt-20">
-        <section className="left md:w-1/2 flex items-center justify-center relative">
+      <section className="main flex mt-18">
+        <section className="left md:w-1/2 flex justify-center relative">
           <img 
           src="images/main_about_me.png" 
           alt="about_me_1" 
-          className="w-[28rem] h-[34rem]"
+          className="w-[34rem] h-auto"
           />
         {/* will redo the image soon */}
         
@@ -28,11 +28,11 @@ export default function Home() {
             {/* </div> */}
           {/* </div> */}
         </section>
-        <section className="right md:w-1/2 flex flex-col justify-center">
-          <div className="text text-white text-left">
-            <span className="text-4xl">Hello! I am</span> <br />
-            <span className="text-7xl text-red-400">Keith.</span> <br />
-            <span className="text-4xl">I am an Ai and Cybersecurity specialist</span>
+        <section className="right md:w-1/2 flex flex-col justify-center z-10">
+          <div className="text text-white text-left md:w-4/5">
+            <span className="text-7xl">Hello! I am</span> <br />
+            <span className="text-9xl text-red-400">Keith.</span> <br />
+            <span className="text-6xl">I am an Ai and Cybersecurity specialist</span>
             <br /> <br />
             <p className="text-md">
               Welcome to my portfolio! Here, I showcase a range of projects spanning 

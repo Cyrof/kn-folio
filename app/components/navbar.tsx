@@ -14,14 +14,17 @@ const NavBar = () => {
     return (
         <nav>
             <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
-                <div className="text-red-400">
-                    <img src="/images/portfolio2.svg" alt="portfolio_logo" className="fill-current"/>
-                </div>
+                <a href="/">
+                    <div className="text-red-400">
+                        <img src="/images/portfolio2.svg" alt="portfolio_logo" className="fill-current"/>
+                    </div>
+                </a>
                 {/* can add hamburger menu */}
                 <div className="tabs hidden w-full md:block md:w-auto" id="navbar-default">
                     <ul className="flex flex-row space-x-4 p-4 font-medium">
                         {[
-                            { href: '/', label: 'About Me' },
+                            {href: '/', label: 'Home'},
+                            { href: '/about', label: 'About Me' },
                             { href: '/skills', label: 'Skills' },
                             { href: '/projects', label: 'Projects' },
                             { href: '/contact', label: 'Contact' },
