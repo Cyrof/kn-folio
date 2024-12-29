@@ -12,7 +12,7 @@ export default function Home() {
           <img 
           src="images/main_about_me.png" 
           alt="about_me_1" 
-          className="w-[34rem] h-auto"
+          className="w-[33.5rem] h-auto"
           />
         {/* will redo the image soon */}
         
