@@ -12,7 +12,7 @@ export default function Home() {
           <img 
           src="images/main_about_me.png" 
           alt="about_me_1" 
-          className="w-[33.5rem] h-auto"
+          className="w-[33rem] h-auto"
           />
         </section>
         <section className="right md:w-1/2 flex flex-col justify-center z-10">
