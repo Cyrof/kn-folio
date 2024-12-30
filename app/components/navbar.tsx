@@ -12,45 +12,43 @@ const NavBar = () => {
     const pathname = usePathname();
 
     return (
-        <header>
-            <nav>
-                <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
-                    <a href="/">
-                        <div className="text-red-400">
-                            <img src="/images/portfolio2.svg" alt="portfolio_logo" className="fill-current"/>
-                        </div>
-                    </a>
-                    {/* can add hamburger menu */}
-                    <div className="tabs hidden w-full md:block md:w-auto" id="navbar-default">
-                        <ul className="flex flex-row space-x-4 p-4 font-medium">
-                            {[
-                                {href: '/', label: 'Home'},
-                                { href: '/about', label: 'About Me' },
-                                { href: '/skills', label: 'Skills' },
-                                { href: '/projects', label: 'Projects' },
-                                { href: '/contact', label: 'Contact' },
-                            ].map(({ href, label }, index) => (
-                                <li key={href}>
-                                    <Link
-                                        href={href}
-                                        aria-current={isActive(pathname, href) ? 'page' : undefined}
-                                        className={`px-5 py-2 ${isActive(pathname, href) ? 'text-red-400' : 'hover:text-red-400 text-gray-200'
-                                        }`}
-                                    >
-                                        <span className="text-red-400">
-                                            {index + 1}. 
-                                        </span>
-                                        <span className="ml-1">
-                                            {label}
-                                        </span>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+        <nav>
+            <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="/">
+                    <div className="text-red-400">
+                        <img src="/images/portfolio2.svg" alt="portfolio_logo" className="fill-current"/>
                     </div>
+                </a>
+                {/* can add hamburger menu */}
+                <div className="tabs hidden w-full md:block md:w-auto" id="navbar-default">
+                    <ul className="flex flex-row space-x-4 p-4 font-medium">
+                        {[
+                            {href: '/', label: 'Home'},
+                            { href: '/about', label: 'About Me' },
+                            { href: '/skills', label: 'Skills' },
+                            { href: '/projects', label: 'Projects' },
+                            { href: '/contact', label: 'Contact' },
+                        ].map(({ href, label }, index) => (
+                            <li key={href}>
+                                <Link
+                                    href={href}
+                                    aria-current={isActive(pathname, href) ? 'page' : undefined}
+                                    className={`px-5 py-2 ${isActive(pathname, href) ? 'text-red-400' : 'hover:text-red-400 text-gray-200'
+                                    }`}
+                                >
+                                    <span className="text-red-400">
+                                        {index + 1}. 
+                                    </span>
+                                    <span className="ml-1">
+                                        {label}
+                                    </span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-            </nav>
-        </header>
+            </div>
+        </nav>
     );
 }
 
