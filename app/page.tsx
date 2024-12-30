@@ -1,13 +1,12 @@
 // import Image from "next/image";
 import NavBar from "./components/navbar";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
     <main>
-      <header>
-        <NavBar />
-      </header>
-      <section className="main flex mt-18">
+      <NavBar />
+      <section className="main flex my-16">
         <section className="left md:w-1/2 flex justify-center relative">
           <img 
           src="images/main_about_me.png" 
@@ -46,7 +45,7 @@ export default function Home() {
           </div>
         </section>
       </section>
-
+      <Footer />
     </main>
   );
 }
