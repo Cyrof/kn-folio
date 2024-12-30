@@ -8,14 +8,20 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* --background: #1f1c24; */
     --background: #1a1414
     /* --foreground: #ededed; */
   }
 }
 
+/* global style */
 body {
-  color: var(--foreground);
+  /* color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif; */
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+/* header styles */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading font-bold;
 }
