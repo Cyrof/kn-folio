@@ -1,14 +1,13 @@
 // About page
 import NavBar from "../components/navbar";
+import Footer from "../components/footer";
 
 export default function About() {
     return (
         <main>
-            <header>
-                <NavBar />                
-            </header>
+            <NavBar />                
             {/* main section */}
-            <section className="main flex flex-col gap-5">
+            <section className="main flex flex-col gap-5 my-8">
                 {/* first part (introduction) */}
                 <section className="intro flex">
                     <div className="p-10 text-gray-200 w-2/3">
@@ -54,12 +53,12 @@ export default function About() {
                         <br /><br />
                         <p className="font-sans text-lg">
                             Beyong the world of code and AI models, I&apos;m someone who finds joy in 
-                            <span className="text-red-400">capturing moments through photography</span>. Whether it&apos;s exploring new landscapes, 
+                            <span className="text-red-400"> capturing moments through photography</span>. Whether it&apos;s exploring new landscapes, 
                             documenting life&apos;s fleeting moments, or experimenting with creative compositions, photography serves
                             as my creative outlet.
                             <br /><br />
                             On the more melodic side, I&apos;s been playing the 
-                            <span className="text-red-400">guitar for over 12 years and counting</span>. Music isn&apos;t just a hobby for my. 
+                            <span className="text-red-400"> guitar for over 12 years and counting</span>. Music isn&apos;t just a hobby for my. 
                             I&apos;s a way to unwind, express myself, and sometimes even spark fresh ideas for my tech projects. 
                             <br /><br />
                             Balancing <span className="text-red-400">technology, creativity, and music</span> helps me stay inspired, curious, and ready
@@ -69,6 +68,7 @@ export default function About() {
                     </div>
                 </section>
             </section>
+            <Footer />
         </main>
     );
 }

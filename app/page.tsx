@@ -16,10 +16,10 @@ export default function Home() {
         </section>
         <section className="right md:w-1/2 flex flex-col justify-center z-10">
           <div className="text text-white text-left md:w-4/5">
-            <span className="text-7xl">Hello! I am</span> <br />
-            <span className="text-9xl text-red-400">Keith.</span> <br />
-            <span className="text-6xl">I am an Ai and Cybersecurity specialist</span>
-            <br /> <br /> <br />
+            <h1 className="text-6xl font-heading">Hello! I am</h1> <br />
+            <h1 className="text-9xl text-red-400 font-heading">Keith.</h1> <br />
+            <h1 className="text-5xl font-heading">I am an Ai and Cybersecurity specialist</h1>
+            <br /> <br />
             <div className="icons flex flex-row gap-3">
               <a target="_blank" href="https://github.com/Cyrof" className="group h-14 w-14 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 fill-red-500 group-hover:fill-red-400 transition-colors duration-300 rounded-full shadow-lg shadow-inherit border border-red-400" viewBox="0 0 97.707 97.707">

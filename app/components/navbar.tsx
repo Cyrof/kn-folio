@@ -65,7 +65,7 @@ const NavBar = () => {
                                     <Link
                                         href={href}
                                         aria-current={isActive(pathname, href) ? 'page' : undefined}
-                                        className={`px-5 py-2 ${isActive(pathname, href) ? 'text-red-400' : 'hover:text-red-400 text-gray-200'
+                                        className={`px-5 py-2 ${isActive(pathname, href) ? 'text-red-400' : 'hover:text-red-400 text-gray-200 transition-colors duration-300'
                                         }`}
                                     >
                                         <span className="text-red-400">
