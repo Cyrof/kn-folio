@@ -2,7 +2,7 @@
 
 const DiagonalImage = () => {
     return(
-        <div className="relative w-11/12 h-5/6 overflow-hidden rounded-3xl">
+        <div className="relative w-[95%] h-[90%] overflow-hidden rounded-3xl">
             {/* top left image */}
             <div
                 className="w-[95%] h-full bg-cover clip-custom absolute top-0 left-0 group"
