@@ -1,6 +1,7 @@
 // About page
 import NavBar from "../components/navbar";
 import Footer from "../components/footer";
+import DiagonalImage from "../components/diagonal";
 
 export default function About() {
     return (
@@ -45,8 +46,9 @@ export default function About() {
                 </section>
                 {/* second part (outside of work) */}
                 <section className="outside flex">
-                    <div className="image text-white w-1/3 border border-emerald-400">
-                        <h1>Placeholder Image Here</h1>
+                    {/* double diagonal images */}
+                    <div className="text-white w-1/3 flex justify-center items-center">
+                        <DiagonalImage />
                     </div>
                     <div className="p-10 text-gray-200 w-2/3">
                         <h1 className="text-5xl font-heading">When I&apos;m Not Coding...</h1>
