@@ -53,10 +53,10 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="w-[70%] bg-[#291f1f] rounded-lg shadow-2xl">
-            <div className="w-full pl-5 pt-5">
-                <h3 className="text-gray-200 text-4xl font-heading mb-3">Drop Me a Message</h3>
-                <p className="w-4/5 font-sans text-gray-300 text-lg">
+        <div className="w-[70%] bg-[#3d3131] rounded-3xl shadow-lg shadow-red-500">
+            <div className="w-full pl-10 pt-6">
+                {/* <h3 className="text-gray-200 text-4xl font-heading mb-3">Drop Me a Message</h3> */}
+                <p className="w-11/12 font-sans text-gray-100 text-xl font-medium">
                     I&apos;m excited to hear from you! Share your thoughts, ideas, or questions, and I&apos;ll get back to you soon.
                 </p>
             </div>
