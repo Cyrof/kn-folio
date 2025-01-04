@@ -53,7 +53,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="w-[70%] bg-[#3d3131] rounded-3xl shadow-lg shadow-red-500">
+        <div className="w-[70%] bg-[#3d3131] rounded-3xl shadow-lg shadow-red-500 animate-appear">
             <div className="w-full pl-10 pt-6">
                 {/* <h3 className="text-gray-200 text-4xl font-heading mb-3">Drop Me a Message</h3> */}
                 <p className="w-11/12 font-sans text-gray-100 text-xl font-medium">

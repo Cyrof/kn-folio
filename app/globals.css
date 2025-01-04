@@ -45,4 +45,45 @@ h1, h2, h3, h4, h5, h6 {
   .clip-wave {
     --clip-path: path('M0 50 Q50 0 100 50 T200 50 V100 H0 Z');
   }
+
+  /* custom gradient text animation */
+  .gradient-text {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(
+      to bottom right, 
+      var(--from-color, #a5adcb) 0%, 
+      var(--var-color, #939ab7) 50%, 
+      var(--to-color, #cad3f5) 100%
+    );
+    background-size: 300% 300%;
+    background-position: top left;
+  }
+
+  .gradient-text-animate {
+    animation: gradient-reveal 4s ease-in-out forwards;
+  }
+
+  @keyframes gradient-reveal {
+    0% {
+      background-position: top left;
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 1;
+    }
+    
+    50% {
+      background-position: center;
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    100% {
+      background-position: bottom right;
+      background-size: 100% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
 }
