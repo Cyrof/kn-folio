@@ -16,23 +16,12 @@ export default {
         sans: "var(--font-roboto), Arial, Helvetica, sans-serif",
         heading: "var(--font-poppins), Arial, Helvetica, sans-serif", 
       },
-      backgroundSize: {
-        'size-200': '200% 200%',
-      },
-      backgroundPosition: {
-        'pos-0': '0% 0%',
-        'pos-100': '100% 100%',
-      },
       keyframes: {
         // animation for contact form
         appear: {
           "0%": {
             opacity: "0",
-            transform: "translateX(20%)", 
-          },
-          "50%": {
-            opacity: "0.5",
-            transform: "translateX(10%)",
+            transform: "translateX(10%)", 
           },
           "100%": {
             opacity: "1",
@@ -42,8 +31,8 @@ export default {
       },
       animation: {
         // animation for contact form
-        appear: "appear 0.5s ease-in-out",
-      }
+        appear: "appear 1.5s ease-in-out",
+      },
     },
   },
   plugins: [],
