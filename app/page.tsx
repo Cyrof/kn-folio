@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       <NavBar />
       <section className="main flex my-16">
-        <section className="left md:w-1/2 flex justify-center relative">
+        <section className="left md:w-1/2 flex justify-center relative animate-right-slideIn opacity-0">
           <img 
           src="images/main.png" 
           alt="about_me_1" 
@@ -16,11 +16,11 @@ export default function Home() {
         </section>
         <section className="right md:w-1/2 flex flex-col justify-center z-10">
           <div className="text text-white text-left md:w-4/5">
-            <h1 className="text-6xl font-heading">Hello! I am</h1> <br />
-            <h1 className="text-9xl text-red-400 font-heading">Keith.</h1> <br />
-            <h1 className="text-5xl font-heading">I am an Ai and Cybersecurity specialist</h1>
+            <h1 className="text-6xl font-heading animate-staggered-text opacity-0 [--slidein-delay:300ms]">Hello! I am</h1> <br />
+            <h1 className="text-9xl text-red-400 font-heading animate-staggered-text opacity-0 [--slidein-delay:500ms]">Keith.</h1> <br />
+            <h1 className="text-5xl font-heading animate-staggered-text opacity-0 [--slidein-delay:700ms]">I am an Ai and Cybersecurity specialist</h1>
             <br /> <br />
-            <div className="icons flex flex-row gap-3">
+            <div className="icons flex flex-row gap-3 animate-staggered-text opacity-0 [--slidein-delay:900ms]">
               <a target="_blank" href="https://github.com/Cyrof" className="group h-14 w-14 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 fill-red-500 group-hover:fill-red-400 transition-colors duration-300 rounded-full shadow-lg shadow-inherit border border-red-400" viewBox="0 0 97.707 97.707">
                   <path 
@@ -35,10 +35,10 @@ export default function Home() {
               </a>
             </div>
             <br />
-            <div className="buttons">
+            <div className="buttons animate-staggered-text opacity-0 [--slidein-delay:900ms]">
               <a 
                 href="/contact"
-                className="bg-red-500 text-gray-200 rounded-3xl p-3 border border-red-400 hover:bg-[#F55D5D] shadow-lg shadow-inherit transition-colors duration-300"
+                className="bg-red-500 text-lg text-gray-200 rounded-3xl p-3 border border-red-400 hover:bg-[#F55D5D] shadow-lg shadow-inherit transition-colors duration-300"
               >Contact Me</a>
               {/* Can add resume button */}
             </div>
