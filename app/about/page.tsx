@@ -8,7 +8,7 @@ export default function About() {
         <main>
             <NavBar />                
             {/* main section */}
-            <section className="main flex flex-col gap-5 my-8">
+            <section className="main flex flex-col gap-10 my-8">
                 {/* first part (introduction) */}
                 <section className="intro flex">
                     <div className="p-10 text-gray-200 w-2/3">
@@ -40,8 +40,21 @@ export default function About() {
                             <span className="text-red-400"> modern AI systems</span> and driving impactful change.
                         </p>
                     </div>                    
-                    <div className="image text-white w-1/3 border border-cyan-300">
-                        <h1>Placeholder Image Here</h1>
+                    <div className="text-white w-1/3 p-5 group">
+                        <div 
+                            className="relative w-auto h-auto"
+                        >
+                            <img 
+                                src="images/about_me.png" 
+                                alt="about me" 
+                                className="rounded-3xl"
+                            />
+                            <div
+                                className="absolute opacity-0 bottom-0 right-0 bg-gray-800 w-3/12 rounded-lg mr-2 text-center bg-opacity-80 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:-translate-y-2 group-hover:pointer-events-auto"
+                            >
+                                <span className="font-sans text-sm font-medium text-gray-200">Botanic Garden, Singapore</span>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 {/* second part (outside of work) */}
