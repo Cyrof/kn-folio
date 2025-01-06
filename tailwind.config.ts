@@ -16,6 +16,23 @@ export default {
         sans: "var(--font-roboto), Arial, Helvetica, sans-serif",
         heading: "var(--font-poppins), Arial, Helvetica, sans-serif", 
       },
+      keyframes: {
+        // animation for contact form
+        appear: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(10%)", 
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
+        },
+      },
+      animation: {
+        // animation for contact form
+        appear: "appear 1.5s ease-in-out",
+      },
     },
   },
   plugins: [],
