@@ -9,9 +9,9 @@ export default function Home() {
       <section className="main flex my-16">
         <section className="left md:w-1/2 flex justify-center relative">
           <img 
-          src="images/main_about_me.png" 
+          src="images/main.png" 
           alt="about_me_1" 
-          className="w-[33rem] h-auto"
+          className="w-[45rem] h-auto"
           />
         </section>
         <section className="right md:w-1/2 flex flex-col justify-center z-10">
