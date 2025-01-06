@@ -13,13 +13,8 @@ const NavBar = () => {
 
     return (
         <header>
-            <nav>
+            <nav className="animate-appear opacity-0">
                 <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
-                    {/* <a href="/">
-                        <div className="text-red-400">
-                            <img src="/images/portfolio2.svg" alt="portfolio_logo" className="fill-current"/>
-                        </div>
-                    </a> */}
                     <Link href={"/"}>
                     <svg 
                         viewBox="0 0 77 67" 
