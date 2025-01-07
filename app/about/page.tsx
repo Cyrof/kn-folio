@@ -40,7 +40,7 @@ export default function About() {
                             <span className="text-red-400"> modern AI systems</span> and driving impactful change.
                         </p>
                     </div>                    
-                    <div className="text-white w-1/3 p-5 group">
+                    <div className="text-white w-1/3 p-5 group animate-appear opacity-0">
                         <div 
                             className="relative w-auto h-auto"
                         >
