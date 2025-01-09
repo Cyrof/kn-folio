@@ -38,7 +38,18 @@ export default {
           "100%": {
             opacity: "1",
             translate: "translateY(0)",
-          }
+          },
+        },
+
+        slideDown: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-20%)",
+          },
+          "100%": {
+            opacity: "1",
+            translate: "translateY(0)",
+          },
         },
 
         // main picture slide in
@@ -58,7 +69,8 @@ export default {
         appear: "appear 1.5s ease-in-out forwards",
 
         // staggered text
-        "staggered-text": "slideUp 1s ease var(--slidein-delay, 0) forwards",
+        "staggered-text-up": "slideUp 1s ease var(--slidein-delay, 0) forwards",
+        "staggered-text-down": "slideDown 1s ease var(--slidein-delay, 0) forwards",
 
         // main picture slide in
         "right-slideIn": "mainAppear 1.5s ease forwards",
