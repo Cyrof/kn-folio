@@ -11,7 +11,7 @@ export default function About() {
             <section className="main flex flex-col gap-10 my-8">
                 {/* first part (introduction) */}
                 <section className="intro flex">
-                    <div className="p-10 text-gray-200 w-2/3">
+                    <div className="p-10 text-gray-200 w-2/3 animate-staggered-text opacity-0 [--slidein-delay:300ms]">
                         {/* <h1>Text here</h1> */}
                         {/* <span className="text-5xl">A Little About Me</span> */}
                         <h1 className="text-5xl font-heading mt-5">A Little About Me</h1>
