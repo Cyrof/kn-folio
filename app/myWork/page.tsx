@@ -1,6 +1,7 @@
 // my work page 
 import NavBar from "../components/navbar"
 import Footer from "../components/footer"
+import TextReveal from "../components/textReveal"
 
 export default function myWork(){ 
     return(
@@ -10,13 +11,13 @@ export default function myWork(){
                 <section className="text-gray-200 w-full h-auto flex flex-col">
                     {/* header / banner */}
                     <section className="w-full">
-                        <div className="w-full flex justify-center items-center m-10">
-                            <h1 className=" text-6xl">What I Do</h1>
+                        <div className="w-full h-auto flex justify-center items-center my-10">
+                            <TextReveal />
                         </div>
                     </section>
                     {/* top 5 skills */}
                     <section>
-                        <h1>Skills progress bar here</h1>
+                        <h1>Skills cards here</h1>
                     </section>
                     {/* projects here */}
                     <section>

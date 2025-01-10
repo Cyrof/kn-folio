@@ -63,6 +63,16 @@ export default {
             transform: "translateX(0)",
           }
         },
+
+        // text reveal 
+        "text-reveal": {
+          "0%": {
+            transform: "translateY(-100%)",
+          },
+          "100%": {
+            transform: "translateY(0)",
+          }
+        }
       },
       animation: {
         // animation for contact form
@@ -74,6 +84,9 @@ export default {
 
         // main picture slide in
         "right-slideIn": "mainAppear 1.5s ease forwards",
+
+        // text reveal animation
+        "text-reveal": "text-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s backwards"
       },
     },
   },
