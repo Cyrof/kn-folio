@@ -50,10 +50,9 @@ const NavBar = () => {
                     <div className="tabs hidden w-full md:block md:w-auto" id="navbar-default">
                         <ul className="flex flex-row space-x-4 p-4 font-medium">
                             {[
-                                {href: '/', label: 'Home'},
+                                { href: '/', label: 'Home' },
                                 { href: '/about', label: 'About Me' },
-                                { href: '/skills', label: 'Skills' },
-                                { href: '/projects', label: 'Projects' },
+                                { href: '/myWork', label: 'My Work' },
                                 { href: '/contact', label: 'Contact' },
                             ].map(({ href, label }, index) => (
                                 <li key={href} className="text-xl">
