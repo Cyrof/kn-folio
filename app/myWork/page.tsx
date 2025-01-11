@@ -12,7 +12,7 @@ export default function myWork(){
                 <section className="text-gray-200 w-full h-auto flex flex-col">
                     {/* header / banner */}
                     <section className="w-full">
-                        <div className="w-full h-auto flex justify-center items-center my-10">
+                        <div className="w-full h-auto flex justify-center items-center mt-5 mb-16">
                             <TextReveal />
                         </div>
                     </section>
