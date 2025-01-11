@@ -2,6 +2,7 @@
 import NavBar from "../components/navbar"
 import Footer from "../components/footer"
 import TextReveal from "../components/textReveal"
+import Skills from "../components/skills"
 
 export default function myWork(){ 
     return(
@@ -17,7 +18,7 @@ export default function myWork(){
                     </section>
                     {/* top 5 skills */}
                     <section>
-                        <h1>Skills cards here</h1>
+                        <Skills />
                     </section>
                     {/* projects here */}
                     <section>
