@@ -1,11 +1,12 @@
 // interfaces for skills and project json file 
 
-interface Skill {
+export interface Skill {
     name: string, 
     description: string;
+    icon: string,
 }
 
-interface Project {
+export interface Project {
     name: string;
     description: string;
 }
