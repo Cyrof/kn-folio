@@ -65,7 +65,7 @@ const Skills = () => {
                                             src={skill.icon} 
                                             alt={`${skill.name} icon`}
                                             className="w-auto h-auto mb-3"
-                                        />                                        
+                                        />    
                                         <h1 className="font-heading text-2xl">{skill.name}</h1>
                                     </div>
                                     {/* back face */}
@@ -79,41 +79,7 @@ const Skills = () => {
                     })}
                 </div>
             ))}
-
         </div>
-        // <div className="w-full h-auto flex flex-col gap-10 items-center">
-        //     {skillsChunk.map((chunk, chunkIndex) => (
-        //         <div
-        //             key={chunkIndex}
-        //             className={`flex justify-center w-full gap-20`}
-        //         >
-        //             {chunk.map((skill, index) => (
-        //                 <div
-        //                     key={index}
-        //                     className="group w-56 h-60"
-        //                 >
-        //                     {/* wrapper */}
-        //                     <div className="relative bg-[#3d3131] h-full w-full rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-        //                         {/* front face */}
-        //                         <div className="inset-0 h-full w-full rounded-xl [backface-visibility:hidden] flex flex-col justify-center items-center p-5">
-        //                             <img 
-        //                                 src={skill.icon} 
-        //                                 alt={`${skill.name} icon`}
-        //                                 className="w-auto h-auto mb-3"
-        //                             />
-        //                             <h1 className="font-heading text-lg">{skill.name}</h1>
-        //                         </div>
-        //                         {/* back face */}
-        //                         <div className="absolute inset-0 h-full w-full rounded-xl text-center [transform:rotateY(180deg)] [backface-visibility:hidden] p-5">
-        //                             <h1 className="font-heading text-2xl mb-2">{skill.name}</h1>
-        //                             <p className="font-sans text-lg text-pretty text-center">{skill.description}</p>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             ))}
-        //         </div>
-        //     ))}
-        // </div>
     )
 }
 
