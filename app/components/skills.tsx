@@ -1,16 +1,8 @@
 // skills cards 
 'use client'
 import { useEffect, useState } from "react";
-import { Data, Skill } from "../interfaces/skills_project";
-
-// function to split array into chunks 
-const chunkArray = (arr: Skill[], size: number) => {
-    const result = [];
-    for (let i=0; i<arr.length; i+=size) {
-        result.push(arr.slice(i, i+size));
-    }
-    return result;
-}
+import { Data } from "../interfaces/skills_project";
+import { chunkArray } from "../utils/chunkArray";
 
 const Skills = () => {
     const [data, setData] = useState<Data>({ skills: [], projects: [] });
