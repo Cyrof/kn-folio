@@ -39,7 +39,7 @@ const Projects = () => {
                             >
                                 {/* circle image */}
                                 <div className=" w-20 h-20 rounded-full overflow-hidden border-4 border-gray-700 shadow-lg bg-gray-800">
-                                    <img src={proj.img} alt="img" className="mt-2"/>
+                                    <img src={proj.url} alt="img" className="mt-2"/>
                                 </div>
                             </div>
                         </div>
