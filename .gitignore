@@ -42,3 +42,4 @@ next-env.d.ts
 
 # ignore data json
 data.json
+processed-data.json

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
     try{
-        const file = await fs.readFile(process.cwd() + '/app/data/data.json', 'utf-8');
+        const file = await fs.readFile(process.cwd() + '/app/data/processed-data.json', 'utf-8');
         const data = JSON.parse(file);
         
         return NextResponse.json(data, {status: 200});

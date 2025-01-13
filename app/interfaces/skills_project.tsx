@@ -9,7 +9,7 @@ export interface Skill {
 export interface Project {
     name: string;
     description: string;
-    img: string;
+    url: string;
 }
 
 export interface Data {
