@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-// import { processJson } from "./app/utils/imageProcess";
+import { processJson } from "./app/utils/imageProcess";
 
 const nextConfig: NextConfig = {
   /* config options here */
