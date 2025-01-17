@@ -21,7 +21,7 @@ const download = async (url: string, imagePath: string) => {
 
 export const processJson = async () => {
     const imageDir = path.join(process.cwd(), "public", "images");
-    const placeholderImagePath = `${imageDir}/placeholder.jpg`;
+    const placeholderImagePath = `images/placeholder.jpg`;
     const originalJsonPath = path.join(process.cwd(), "app", "data", "data.json");
     const processedJsonPath = path.join(process.cwd(), "app", "data", "processed-data.json");
     let index = 1;
@@ -44,7 +44,6 @@ export const processJson = async () => {
     const newData = { ...originalData, projects: [] };
 
     for (const project of originalData.projects){
-        console.log("Inspecting project: ", project);
         const updatedProject = { ...project };
 
         if (!project.url){
@@ -57,6 +56,7 @@ export const processJson = async () => {
         if (typeof project.url === "string" || project.url.includes("drive.google.com")){
             const fileId = `project_${index}.png`;
             const localImagePath = path.join(imageDir, fileId);
+            const imagePath = `/images/${fileId}`
 
             if (project.url === "None"){
                 console.error(`Invalid URL for project "${project.name}": ${project.url}`);
@@ -72,7 +72,7 @@ export const processJson = async () => {
                 } else {
                     console.log(`Image already exists: ${localImagePath}`);
                 }
-                updatedProject.url = localImagePath;
+                updatedProject.url = imagePath;
             } catch (err) {
                 console.error(`Failed to download image for project "${project.name}":`, err);
                 updatedProject.url = placeholderImagePath;
