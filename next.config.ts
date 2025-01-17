@@ -5,13 +5,13 @@ const nextConfig: NextConfig = {
   /* config options here */
 };
 
-// (async () => {
-//   try{
-//     await processJson();
-//     console.log("JSON processing complete.");
-//   } catch (error) {
-//     console.error("Error processing JSON:", error);
-//   }
-// })();
+(async () => {
+  try{
+    await processJson();
+    console.log("JSON processing complete.");
+  } catch (error) {
+    console.error("Error processing JSON:", error);
+  }
+})();
 
 export default nextConfig;
