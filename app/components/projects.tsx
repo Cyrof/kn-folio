@@ -35,12 +35,14 @@ const Projects = () => {
                         >
                             {/* wrapper */}
                             <div
-                                className="bg-[#3d3131] h-full w-full rounded-xl shadow-xl cursor-pointer flex justify-center"
+                                className="bg-[#3d3131] h-full w-full rounded-xl shadow-xl flex flex-col justify-center items-center gap-3"
                             >
                                 {/* circle image */}
-                                <div className=" w-20 h-20 rounded-full overflow-hidden border-4 border-gray-700 shadow-lg bg-gray-800">
-                                    <img src={proj.url} alt="img" className="mt-2"/>
+                                <div className="w-20 h-20 border-4 border-gray-700 shadow-lg bg-gray-800 flex justify-center items-center rounded-xl">
+                                    <img src={proj.url} alt="img" className="w-16 h-auto"/>
                                 </div>
+                                <span className="w-4/5 text-center font-sans font-semibold">{proj.name}</span>
+                                <p className="w-4/5 text-center font-sans font-medium opacity-0 group-hover:animate-staggered-text-up [--slidein-delay: 200ms]">{proj.description}</p>
                             </div>
                         </div>
                     ))}
