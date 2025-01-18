@@ -72,6 +72,18 @@ export default {
           "100%": {
             transform: "translateY(0)",
           }
+        },
+
+        // skills card load animation 
+        cardDown: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-50%)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)"
+          }
         }
       },
       animation: {
@@ -86,7 +98,10 @@ export default {
         "right-slideIn": "mainAppear 1.5s ease forwards",
 
         // text reveal animation
-        "text-reveal": "text-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s backwards"
+        "text-reveal": "text-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s backwards",
+
+        // skills card animation 
+        "card-down": "cardDown 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s forwards"
       },
     },
   },
