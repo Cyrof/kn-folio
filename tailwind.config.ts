@@ -84,6 +84,18 @@ export default {
             opacity: "1",
             transform: "translateY(0)"
           }
+        },
+
+        // left slide in 
+        leftSlide: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(10%)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)"
+          }
         }
       },
       animation: {
@@ -96,6 +108,9 @@ export default {
 
         // main picture slide in
         "right-slideIn": "mainAppear 1.5s ease forwards",
+
+        // left slide in animation 
+        "left-slidein": "leftSlide 1.5s ease forwards",
 
         // text reveal animation
         "text-reveal": "text-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s backwards",
