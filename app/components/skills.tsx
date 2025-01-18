@@ -41,7 +41,8 @@ const Skills = () => {
                         return (
                             <div
                                 key={absoluteIndex}
-                                className="group w-56 h-60 relative"
+                                className="group w-56 h-60 relative opacity-0 animate-card-down"
+                                style={{ animationDelay: `${index * 0.05}s`}}
                                 onClick={() => handleCardClick(absoluteIndex)}
                             >
                                 {/* wrapper */}

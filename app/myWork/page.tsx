@@ -17,13 +17,30 @@ export default function myWork(){
                             <TextReveal />
                         </div>
                     </section>
-                    {/* top 5 skills */}
-                    <section className="my-16">
-                        <Skills />
+                    {/* top skills */}
+                    <section className="my-16 h-5/6">
+                        <div className="w-full h-auto flex px-5">
+                            {/* header */}
+                            <div className="flex justify-center items-center h-auto w-[5%] m-0">
+                                <h1 className="[writing-mode:vertical-lr] rotate-180 text-4xl text-gray-200">My Skills</h1>
+                            </div>
+                            <Skills />
+                            {/* placeholder */}
+                            <div className="w-[5%] h-auto"></div>
+                        </div>
                     </section>
+                    <hr className="mx-10 border-[#2b1f1f]"/>
                     {/* projects here */}
-                    <section className="my-16">
-                        <Projects />
+                    <section className="my-16 h-4/6">
+                        <div className="w-full h-auto flex px-5">
+                            {/* placeholder */}
+                            <div className="w-[5%]"></div>
+                            <Projects />
+                            {/* header */}
+                            <div className="flex justify-center items-center h-auto w-[5%]">
+                                <h1 className="[writing-mode:vertical-lr] text-4xl text-gray-200">My Projects</h1>
+                            </div>
+                        </div>
                     </section>
                 </section>
             <Footer />
