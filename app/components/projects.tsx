@@ -25,7 +25,7 @@ const Projects = () => {
     const projectChunk = chunkArray(data.projects, 3);
 
     return(
-        <div className="w-full h-auto flex flex-col gap-10 items-center">
+        <div className="w-full h-auto flex flex-col gap-10 items-center animate-staggered-text-down [--slidein-delay:200ms] opacity-0 [animation-timeline:view()]">
             {projectChunk.map((chunk, chunkIndex) => (
                 <div key={chunkIndex} className="flex justify-center w-full gap-20">
                     {chunk.map((proj, index) => (

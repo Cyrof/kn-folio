@@ -21,7 +21,7 @@ export default function myWork(){
                     <section className="my-16 h-5/6">
                         <div className="w-full h-auto flex px-5">
                             {/* header */}
-                            <div className="flex justify-center items-center h-auto w-[5%] m-0">
+                            <div className="flex justify-center items-center h-auto w-[5%] m-0 opacity-0 animate-right-slideIn [animation-delay:500ms]">
                                 <h1 className="[writing-mode:vertical-lr] rotate-180 text-4xl text-gray-200">My Skills</h1>
                             </div>
                             <Skills />
@@ -37,7 +37,7 @@ export default function myWork(){
                             <div className="w-[5%]"></div>
                             <Projects />
                             {/* header */}
-                            <div className="flex justify-center items-center h-auto w-[5%]">
+                            <div className="flex justify-center items-center h-auto w-[5%] animate-left-slidein opacity-0 [animation-timeline:view()] [animation-range-start:20%] [animation-range-end:80%]">
                                 <h1 className="[writing-mode:vertical-lr] text-4xl text-gray-200">My Projects</h1>
                             </div>
                         </div>
