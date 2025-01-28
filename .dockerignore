@@ -1,0 +1,12 @@
+Dockerfile 
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+.next 
+.git
+
+data.json
+processed-data.json
+.env.local
+project_*.png
