@@ -19,6 +19,9 @@ RUN npm run build
 # run the app 
 FROM node:alpine3.20
 
+# install dependencies
+RUN apk add --no-cache tini
+
 # work dir 
 WORKDIR /usr/src/app
 
@@ -33,6 +36,9 @@ RUN mkdir -p /usr/src/app/app/data
 
 # expose default nextjs port 
 EXPOSE 3000
+
+# ensure container uses a signal-forwarding init system like `tini`
+ENTRYPOINT ["tini", "--"]
 
 # run command 
 CMD ["npm", "run", "start"]
