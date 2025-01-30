@@ -1,5 +1,5 @@
 # build the app
-FROM node:alpine3.20 AS builder 
+FROM node:18-alpine AS builder 
 
 # set work dir
 WORKDIR /usr/src/app
