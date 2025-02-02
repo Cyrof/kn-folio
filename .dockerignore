@@ -6,5 +6,5 @@ README.md
 .next 
 .git
 
-data.json
+app/data/data.json
 .env.local
