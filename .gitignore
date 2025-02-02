@@ -45,4 +45,4 @@ next-env.d.ts
 # processed-data.json
 
 # ignore downloaded images 
-project_*.png
+# project_*.png
