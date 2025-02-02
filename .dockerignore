@@ -7,6 +7,4 @@ README.md
 .git
 
 data.json
-processed-data.json
 .env.local
-project_*.png
