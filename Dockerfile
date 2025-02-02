@@ -32,7 +32,7 @@ COPY --from=builder /usr/src/app/public ./public
 COPY --from=builder /usr/src/app/node_modules ./node_modules
 
 # create data dir 
-RUN mkdir -p /usr/src/app/app/data
+# RUN mkdir -p /usr/src/app/app/data
 
 # expose default nextjs port 
 EXPOSE 3000
