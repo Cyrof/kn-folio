@@ -1,4 +1,4 @@
-import { processJson } from "./app/utils/imageProcess";
+import { processJson } from "./server/imageProcess";
 
 export async function register(){
     // process image 

@@ -1,4 +1,3 @@
-
 import fs from "fs";
 import path from "path";
 import axios from "axios";
@@ -56,7 +55,7 @@ export const processJson = async () => {
         if (typeof project.url === "string" || project.url.includes("drive.google.com")){
             const fileId = `project_${index}.png`;
             const localImagePath = path.join(imageDir, fileId);
-            const imagePath = `/images/${fileId}`
+            const imagePath = `images/${fileId}`
 
             if (project.url === "None"){
                 console.error(`Invalid URL for project "${project.name}": ${project.url}`);
