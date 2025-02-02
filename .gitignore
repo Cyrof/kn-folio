@@ -41,8 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 # ignore data json
-data.json
-processed-data.json
+# data.json
+# processed-data.json
 
 # ignore downloaded images 
 project_*.png
