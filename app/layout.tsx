@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Roboto, Poppins } from "next/font/google";
+
 import { MantineProvider, mantineHtmlProps } from "@mantine/core";
+import "@mantine/core/styles.css"
+
 import "./globals.css";
 
 const roboto = Roboto({
