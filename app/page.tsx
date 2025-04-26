@@ -1,7 +1,6 @@
-// import Image from "next/image";
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
-import { Box, Group, Image, Stack, Text, Anchor, ActionIcon } from "@mantine/core";
+import { Box, Group, Image, Stack, Text, Anchor } from "@mantine/core";
 
 export default function Home() {
   return (
