@@ -1,15 +1,5 @@
-// import { processJson } from "./server/imageProcess";
 
-export async function register(){
-    // process image 
-    // try { 
-    //     await processJson();
-    //     console.log("Json Processing...");
-    // } catch (err){
-    //     console.error("Error Processing...", err);
-    //     process.exit(1);
-    // }
-
+export function RegisterShutdownHandlers(){
     // gracefully shutdown handlers 
     const shutdown = (signal: string) => {
         console.log(`Received ${signal}. Gracefully shutting down...`);
