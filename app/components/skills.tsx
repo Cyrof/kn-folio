@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Data } from "../interfaces/skills_project";
 import { chunkArray } from "../utils/chunkArray";
+import { Box, Image, Stack, Text, Group } from "@mantine/core";
 
 const Skills = () => {
     const [data, setData] = useState<Data>({ skills: [], projects: [] });
@@ -33,46 +34,45 @@ const Skills = () => {
     const skillsChunk = chunkArray(data.skills, 4);
     
     return (
-        <div className="w-full h-auto flex flex-col gap-10 items-center">
+        <Stack className="w-full h-auto items-center" gap="lg">
             {skillsChunk.map((chunk, chunkIndex) => (
-                <div key={chunkIndex} className="flex justify-center w-full gap-20">
-                    {chunk.map((skill,index) => {
+                <Group key={chunkIndex} className="w-full" justify="center" gap="xl">
+                    {chunk.map((skill, index) => {
                         const absoluteIndex = chunkIndex * 4 + index;
                         return (
-                            <div
-                                key={absoluteIndex}
+                            <Box 
+                                key={absoluteIndex} 
                                 className="group w-56 h-60 relative opacity-0 animate-card-down"
                                 style={{ animationDelay: `${index * 0.05}s`}}
                                 onClick={() => handleCardClick(absoluteIndex)}
                             >
-                                {/* wrapper */}
-                                <div
+                                <Box
                                     className={`relative bg-[#3d3131] h-full w-full rounded-xl shadow-xl transition-transform duration-500 [transform-style:preserve-3d]
-                                    ${flipped[absoluteIndex] ? '[transform:rotateY(180deg)]' : ''}
+                                    ${flipped[absoluteIndex] ? '[transform:rotateY(180deg)]' : ''}    
                                     ${!flipped[absoluteIndex] ? 'group-hover:translate-y-[-10px]' : ''}
                                     cursor-pointer`}
                                 >
-                                    {/* front face */}
-                                    <div className="absolute inset-0 h-full w-full rounded-xl [backface-visibility:hidden] flex flex-col justify-center items-center p-5">
-                                        <img 
-                                            src={skill.icon} 
+                                    {/* front */}
+                                    <Stack className="absolute inset-0 h-full w-full rounded-xl [backface-visibility:hidden] p-5" justify="center" align="center">
+                                        <Image 
+                                            src={skill.icon}
                                             alt={`${skill.name} icon`}
                                             className="w-auto h-auto mb-3"
-                                        />    
-                                        <h1 className="font-heading text-2xl">{skill.name}</h1>
-                                    </div>
-                                    {/* back face */}
-                                    <div className="absolute inset-0 h-full w-full rounded-xl text-center [transform:rotateY(180deg)] [backface-visibility:hidden] p-5">                                        
-                                        <h1 className="font-heading text-2xl mb-2">{skill.name}</h1>
-                                        <p className="font-sans text-lg text-pretty text-center">{skill.description}</p>
-                                    </div>
-                                </div>
-                            </div>
+                                        />
+                                        <Text className="font-semibold text-2xl text-gray-200">{skill.name}</Text>
+                                    </Stack>
+                                    {/* back */}
+                                    <Stack className="absolute inset-0 h-full w-full rounded-xl text-center [transform:rotateY(180deg)] [backface-visibility:hidden] p-5" justify="flex-start" align="center">
+                                        <Text className="font-semibold text-3xl mb-2 text-gray-200">{skill.name}</Text>
+                                        <Text className="font-sans text-lg text-pretty text-center text-gray-200">{skill.description}</Text>
+                                    </Stack>
+                                </Box>
+                            </Box>
                         )
                     })}
-                </div>
+                </Group>
             ))}
-        </div>
+        </Stack>
     )
 }
 
