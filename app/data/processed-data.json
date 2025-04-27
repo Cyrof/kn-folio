@@ -40,7 +40,7 @@
     {
       "name": "Digital Porfolio",
       "description": "A Next.js-based personal portfolio website.",
-      "url": "images/project_1.png",
+      "url": "images/projects/digital_portfolio.png",
       "github": "https://github.com/Cyrof/kn-folio"
     },
     {
@@ -52,7 +52,7 @@
     {
       "name": "Sentinel a Home Detection System",
       "description": "Object detection system to detect hazards",
-      "url": "images/project_2.png",
+      "url": "images/projects/sentinel.png",
       "github": "https://github.com/dixslyf/sentinel"
     }
   ]
