@@ -1,17 +1,18 @@
-const config =  {
-    plugins: ['@ianvs/prettier-plugin-sort-imports'],
+const config = {
+    tabWidth: 4,
+    plugins: ["@ianvs/prettier-plugin-sort-imports"],
     importOrder: [
-        '<BUILTIN_MODULES>',
-        '',
-        '<THIRD_PARTY_MODULES>',
-        '',
-        '^@/(.*)$',
-        '',
-        '^[./]',       
-        '',
-        '^(?!.*\\.css$)[./].*$', 
-        '\\.css$',     
+        "<BUILTIN_MODULES>",
+        "",
+        "<THIRD_PARTY_MODULES>",
+        "",
+        "^@/(.*)$",
+        "",
+        "^[./]",
+        "",
+        "^(?!.*\\.css$)[./].*$",
+        "\\.css$",
     ],
-}
+};
 
-export default config
+export default config;
