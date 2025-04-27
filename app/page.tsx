@@ -23,7 +23,7 @@ export default function Home() {
                         <Text className="text-5xl font-heading animate-staggered-text-up opacity-0 [--slidein-delay:700ms]">I am an AI and Cybersecurity Specialist</Text>
                     </Box>
                     <Stack gap="lg">
-                        <Group>
+                        <Group className="animate-staggered-text-up opacity-0 [--slidein-delay:900ms]" gap="md">
                             {/* github */}
                             <Anchor
                                 href="https://github.com/Cyrof"
@@ -47,7 +47,7 @@ export default function Home() {
                                 </svg>
                             </Anchor>
                         </Group>
-                        <Box>
+                        <Box className="animate-staggered-text-up opacity-0 [--slidein-delay:1100ms]">
                             <Anchor
                                 href="/contact"
                                 underline="never"
