@@ -23,7 +23,7 @@ const Footer = () => {
                         </svg>
                     </Anchor>
                     {/* linkedin */}
-                    <Anchor target="_blank" href="https://www.linkedin.com/in/keith-neo-8ba4401a8/" className="group h-14 w-auto rounded-full">
+                    <Anchor target="_blank" href="https://www.linkedin.com/in/keithnks" className="group h-14 w-auto rounded-full">
                         <svg 
                             xmlns="http://www.w3.org/2000/svg" 
                             className="bi bi-linkedin h-14 w-auto fill-red-500 group-hover:fill-red-400 transition-colors duration-500 rounded-full" 

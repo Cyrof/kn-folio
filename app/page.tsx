@@ -38,7 +38,7 @@ export default function Home() {
                             </Anchor>
                             {/* linkedin */}
                             <Anchor
-                                href="https://www.linkedin.com/in/keith-neo-8ba4401a8/"
+                                href="https://www.linkedin.com/in/keithnks"
                                 target="_blank"
                                 className="group h-14 w-14 rounded-full"
                             >

@@ -46,7 +46,7 @@
     {
       "name": "K3S Raspberry pi Cluster",
       "description": "A Kubernetes ecosystem using 4 raspberry pi.",
-      "url": "images/placeholder.jpg",
+      "url": "images/projects/cyrostack.png",
       "github": "https://github.com/Cyrof/rpi-home-server-config"
     },
     {
