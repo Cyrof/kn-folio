@@ -8,6 +8,7 @@ on:
   
 jobs: 
   deployment: 
+    if: false
     name: publish docker images 
     runs-on: ubuntu-latest
     permissions:
