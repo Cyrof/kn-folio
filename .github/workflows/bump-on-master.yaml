@@ -33,7 +33,7 @@ jobs:
           git commit -m "chore(release): bump version to v$NEW_VER [skip ci]"
 
       - name: Push bumped version 
-        uses: ad-m/github-push-action@0.6.0
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GH_PAT}}
           branch: master
