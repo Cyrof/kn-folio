@@ -44,7 +44,7 @@ jobs:
           body: |
             Automated release for ${{ steps.get_version.outputs.tag }}
         env:
-          GITHUB_TOKEN: ${{ secret.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
   
   docker:
     needs: release
