@@ -34,7 +34,7 @@ jobs:
           git tag ${{ steps.get_version.outputs.tag }}
           git push origin ${{ steps.get_version.output.tag }}
         env:
-          GITHUB_TOKEN: ${{ secret.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
