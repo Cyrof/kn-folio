@@ -6,10 +6,8 @@
   --foreground-rgb: 0, 0, 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a1414
-  }
+:root[data-mantine-color-scheme="dark"] {
+    --mantine-color-body: #1a1414 !important;
 }
 
 /* global style */

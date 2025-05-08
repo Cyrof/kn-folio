@@ -26,13 +26,9 @@ RUN apk add --no-cache tini
 WORKDIR /usr/src/app
 
 # Copy only necessary files from building stage 
-# COPY --from=builder /usr/src/app/package*.json ./
-# COPY --from=builder /usr/src/app/.next ./.next
-# COPY --from=builder /usr/src/app/public ./public
-# COPY --from=builder /usr/src/app/node_modules ./node_modules
-# COPY --from=builder /usr/src/app/app/data ./app/data
-COPY --from=builder /usr/src/app/.next/standalone ./
-COPY --from=builder /usr/src/app/.next/static ./.next/static
+COPY --from=builder /usr/src/app/package*.json ./
+COPY --from=builder /usr/src/app/node_modules ./node_modules
+COPY --from=builder /usr/src/app/.next ./.next
 COPY --from=builder /usr/src/app/public ./public
 
 # Ensure Next.js listens on all interfaces
@@ -44,5 +40,4 @@ EXPOSE 3000
 ENTRYPOINT ["tini", "--"]
 
 # run command 
-# CMD ["npm", "run", "start", "--", "--hostname", "0.0.0.0", "--port", "3000"]
-CMD ["node", "server.js"]
+CMD ["npm", "run", "start", "--", "--hostname", "0.0.0.0", "--port", "3000"]
