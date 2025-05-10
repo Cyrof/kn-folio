@@ -4,7 +4,6 @@ import { Poppins, Roboto } from "next/font/google";
 
 import { Providers } from "./provider";
 
-import "@mantine/core/styles.css";
 import "./globals.css";
 
 const roboto = Roboto({
