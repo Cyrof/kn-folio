@@ -26,6 +26,7 @@ RUN apk add --no-cache tini
 WORKDIR /usr/src/app
 
 # Copy only necessary files from building stage 
+COPY --from=builder /usr/src/app/app/data ./app/data
 COPY --from=builder /usr/src/app/package*.json ./
 COPY --from=builder /usr/src/app/node_modules ./node_modules
 COPY --from=builder /usr/src/app/.next ./.next
