@@ -56,7 +56,7 @@ const ContactForm = () => {
     return (
         <Stack className="w-[70%] bg-[#3d3131] rounded-3xl shadow-lg shadow-red-500 animate-appear opacity-0">
             <Box className="w-full pl-10 pt-6">
-                <Text className="w-11/12 font-sans text-gray-100 text-xl font-medium">I&apos;m excited to hear from you! Share your thoughts, ideas, or questions, and I&apos;ll get bck to you soon.</Text>
+                <Text className="w-11/12 font-sans text-gray-100 text-xl font-medium">I&apos;m excited to hear from you! Share your thoughts, ideas, or questions, and I&apos;ll get back to you soon.</Text>
             </Box>
             <form
                 onSubmit={handleSubmit}
