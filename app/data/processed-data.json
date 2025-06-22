@@ -1,59 +1,125 @@
 {
-  "skills": [
-    {
-      "name": "Python",
-      "description": "Used for AI, data analysis, and simple automation tasks.",
-      "icon": "https://img.icons8.com/?size=100&id=13441&format=png&color=000000"
-    },
-    {
-      "name": "Next.js",
-      "description": "Frontend development using Next.js with Tailwind CSS and TypeScript.",
-      "icon": "https://img.icons8.com/?size=100&id=AU6Wc7r56Fxz&format=png&color=000000"
-    },
-    {
-      "name": "MongoDB",
-      "description": "Preferred NoSQL database for flexible and scalable data storage.",
-      "icon": "https://img.icons8.com/?size=100&id=bosfpvRzNOG8&format=png&color=000000"
-    },
-    {
-      "name": "Git",
-      "description": "Essential for version control and GitHub workflows.",
-      "icon": "https://img.icons8.com/?size=100&id=20906&format=png&color=000000"
-    },
-    {
-      "name": "Docker",
-      "description": "Containerisation of projects for streamlined development and deployment.",
-      "icon": "https://img.icons8.com/?size=100&id=22813&format=png&color=000000"
-    },
-    {
-      "name": "Kubernetes",
-      "description": "Orchestration and deployment on a Raspberry Pi cluster.",
-      "icon": "https://img.icons8.com/?size=100&id=cvzmaEA4kC0o&format=png&color=000000"
-    },
-    {
-      "name": "Arch Linux",
-      "description": "Main workstation OS for programming and development tasks.",
-      "icon": "https://img.icons8.com/?size=100&id=uIXgLv5iSlLJ&format=png&color=000000"
-    }
-  ],
-  "projects": [
-    {
-      "name": "Digital Porfolio",
-      "description": "A Next.js-based personal portfolio website.",
-      "url": "images/projects/digital_portfolio.png",
-      "github": "https://github.com/Cyrof/kn-folio"
-    },
-    {
-      "name": "K3S Raspberry pi Cluster",
-      "description": "A Kubernetes ecosystem using 4 raspberry pi.",
-      "url": "images/projects/cyrostack.png",
-      "github": "https://github.com/Cyrof/rpi-home-server-config"
-    },
-    {
-      "name": "Sentinel a Home Detection System",
-      "description": "Object detection system to detect hazards",
-      "url": "images/projects/sentinel.png",
-      "github": "https://github.com/dixslyf/sentinel"
-    }
-  ]
+    "skills": [
+        {
+            "name": "Python",
+             "description": "Used for AI, data analysis, and simple automation tasks.",
+             "icon": "https://img.icons8.com/?size=100&id=13441&format=png&color=000000"
+        },
+        {
+             "name": "C",
+             "description": "Used for low level system programming and performance-critical modules.",
+             "icon": "https://img.icons8.com/?size=100&id=40670&format=png&color=000000"
+        },
+        {
+            "name": "C++",
+            "description": "Applied in object-oriented systems and performance optimisations.",
+            "icon": "https://img.icons8.com/?size=100&id=40669&format=png&color=000000"
+        },
+        {
+            "name": "Go (Golang)",
+            "description": "Used for backend systems, APIs, and lightweight infrastructure tools.",
+            "icon": "https://img.icons8.com/?size=100&id=44442&format=png&color=000000"
+        },
+        {
+            "name": "Rust",
+            "description": "Exploring Rust for secure, high-performance system development.",
+            "icon": "https://img.icons8.com/?size=100&id=haeAxVQEIg0F&format=png&color=000000"
+        },
+        {
+            "name": "JavaScript",
+            "description": "Used for building interactive web application on the frontend.",
+            "icon": "https://img.icons8.com/?size=100&id=108784&format=png&color=000000"
+        },
+        {
+            "name": "TypeScript",
+            "description": "Typed superset of JavaScript for large-scale frontend and backend projects.",
+            "icon": "https://img.icons8.com/?size=100&id=uJM6fQYqDaZK&format=png&color=000000"
+        },
+        {
+            "name": "Next.js",
+            "description": "Frontend development using Next.js with Tailwind CSS and TypeScript.",
+            "icon": "https://img.icons8.com/?size=100&id=AU6Wc7r56Fxz&format=png&color=000000"
+        },
+        {
+            "name": "Tailwind CSS",
+            "description": "Utility-first CSS framework for rapid UI development.",
+            "icon": "https://img.icons8.com/?size=100&id=4PiNHtUJVbLs&format=png&color=000000"
+        },
+        {
+            "name": "React",
+            "description": "Component-based frontend framework used in building interactive UIs.",
+            "icon": "https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png&color=000000"
+        },
+        {
+            "name": "MongoDB",
+            "description": "Preferred NoSQL database for flexible and scalable data storage.",
+            "icon": "https://img.icons8.com/?size=100&id=bosfpvRzNOG8&format=png&color=000000"
+        },
+        {
+            "name": "PostgreSQL",
+            "description": "Robust SQL database used for structured and relational data storage.",
+            "icon": "https://img.icons8.com/?size=100&id=38561&format=png&color=000000"
+        },
+        {
+            "name": "MySQL",
+            "description": "Popular relational database system for web and backend applications.",
+            "icon": "https://img.icons8.com/?size=100&id=rgPSE6nAB766&format=png&color=000000"
+        },
+        {
+            "name": "Git",
+            "description": "Essential for version control and GitHub workflows.",
+            "icon": "https://img.icons8.com/?size=100&id=20906&format=png&color=000000"
+        },
+        {
+            "name": "Docker",
+            "description": "Containerisation of projects for streamlined development and deployment.",
+            "icon": "https://img.icons8.com/?size=100&id=22813&format=png&color=000000"
+        },
+        {
+            "name": "Kubernetes",
+            "description": "Orchestration and deployment on a Raspberry Pi cluster.",
+            "icon": "https://img.icons8.com/?size=100&id=cvzmaEA4kC0o&format=png&color=000000"
+        },
+        {
+            "name": "Ansible",
+            "description": "Used for automation, provisioning, and configuration management.",
+            "icon": "https://img.icons8.com/?size=100&id=iGCCE2iEmh2u&format=png&color=000000"
+        },
+        {
+            "name": "PyTorch",
+            "description": "Used for custom and pre-trained model training in computer vision tasks.",
+            "icon": "https://img.icons8.com/?size=100&id=jH4BpkMnRrU5&format=png&color=000000"
+        },
+        {
+            "name": "Arch Linux",
+            "description": "Main workstation OS for programming and development tasks.",
+            "icon": "https://img.icons8.com/?size=100&id=uIXgLv5iSlLJ&format=png&color=000000"
+        }
+    ],
+    "projects": [
+        {
+            "name": "Digital Porfolio",
+            "description": "A Next.js-based personal portfolio website.",
+            "url": "images/projects/digital_portfolio.png",
+            "github": "https://github.com/Cyrof/kn-folio"
+        },
+        {
+            "name": "K3S Raspberry pi Cluster",
+            "description": "A Kubernetes ecosystem using 4 raspberry pi.",
+            "url": "images/projects/cyrostack.png",
+            "github": "https://github.com/Cyrof/rpi-home-server-config"
+        },
+        {
+            "name": "Sentinel a Home Detection System",
+            "description": "Object detection system to detect hazards.",
+            "url": "images/projects/sentinel.png",
+            "github": "https://github.com/dixslyf/sentinel"
+        },
+        {
+            "name": "ChronoCycle",
+            "description": "A complex recurring task application.",
+            "url": "images/projects/chronocycle.png",
+            "github": "https://github.com/dixslyf/chrono-cycle"
+        }
+    ]
 }

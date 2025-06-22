@@ -31,7 +31,7 @@ const Skills = () => {
         }));
     };
 
-    const skillsChunk = chunkArray(data.skills, 4);
+    const skillsChunk = chunkArray(data.skills, 5);
     
     return (
         <Stack className="w-full h-auto items-center" gap="lg">
