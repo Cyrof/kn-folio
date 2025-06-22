@@ -42,7 +42,7 @@ export default function About() {
                                 <SpanText span>,{' '}reflecting my versatile approach to tech.</SpanText>
                             </Box>
                             <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:900ms]">
-                                <SpanText>In addition to bckend expertise, I&apos;ve delved into{' '}</SpanText>
+                                <SpanText>In addition to backend expertise, I&apos;ve delved into{' '}</SpanText>
                                 <SpanText className="text-red-400">fontend and full-stack development</SpanText>,{' '}
                                 <SpanText>building projects like this very{' '}</SpanText>
                                 <SpanText className="text-red-400"> digital portfolio</SpanText>
@@ -56,7 +56,7 @@ export default function About() {
                                 <SpanText>,{' '}I&apos;m eager to transition into the professional world as an{' '}</SpanText>
                                 <SpanText className="text-red-400">AI Engineer</SpanText>
                                 <SpanText>,{' '}contributing to advancing{' '}</SpanText>
-                                <SpanText className="text-red-400">mordern AI systems{' '}</SpanText>
+                                <SpanText className="text-red-400">modern AI systems{' '}</SpanText>
                                 <SpanText>and driving impactful change.</SpanText>
                             </Box>
                         </Stack>

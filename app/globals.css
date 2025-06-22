@@ -1,21 +1,18 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
+@import "@mantine/core/styles.css";
 @layer tailwind {
     @tailwind base;
 }
 @tailwind components;
 @tailwind utilities;
 
-/* @import mantine */
-@import "@mantine/core/styles.css";
-
 :root {
   --foreground-rgb: 0, 0, 0;
 }
 
-:root[data-mantine-color-scheme="dark"] {
-    --mantine-color-body: #1a1414 !important;
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #1a1414;
+    }
 }
 
 /* global style */
