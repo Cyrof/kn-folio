@@ -139,10 +139,10 @@ export default function About() {
                 </Group>
                 {/* second part (outside of work) */}
                 <Group wrap="nowrap" gap={0} align="top">
-                    <Box className="text-white w-1/3 flex justify-center items-center animate-right-slideIn opacity-0 [animation-timeline:view()] [animation-range-start:10%] [animation-range-end:70%]">
+                    <Box className="text-white w-2/5 flex justify-center items-center animate-right-slideIn opacity-0 [animation-timeline:view()] [animation-range-start:10%] [animation-range-end:70%]">
                         <ImageGallery />
                     </Box>
-                    <Stack className="p-10 text-gray-200 w-2/3" gap="xl">
+                    <Stack className="p-10 text-gray-200 w-3/5" gap="xl">
                         <Text className="text-5xl font-heading animate-staggered-text-down opacity-0 [--slidein-delay:300ms] [animation-timeline:view()] [animation-range-start:10%] [animation-range-end:40%]">
                             When I&apos;m Not Coding...
                         </Text>

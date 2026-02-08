@@ -8,8 +8,8 @@ const ImageGallery = () => {
                 <Box className="relative group flex-grow transition-all w-56 h-[400px] duration-500 hover:w-full overflow-hidden rounded-lg">
                     <img
                         className="h-full w-full object-cover object-center"
-                        src="/images/about/Bird.JPG"
-                        alt="Bird at Botanic Garden"
+                        src="/images/about/cam-me.JPG"
+                        alt="Me at Coney Island"
                     />
                     {/* Optional hover text */}
                     <Box className="absolute bottom-4 left-4 z-10">
@@ -23,8 +23,8 @@ const ImageGallery = () => {
                 <Box className="relative group flex-grow transition-all w-56 h-[400px] duration-500 hover:w-full overflow-hidden rounded-lg">
                     <img
                         className="h-full w-full object-cover object-center"
-                        src="/images/about/Chicken.JPG"
-                        alt="Chicken at Botanic Garden"
+                        src="/images/about/guitar-me.JPG"
+                        alt="Guitar me"
                     />
                     {/* Optional hover text */}
                     <Box className="absolute bottom-4 right-4 z-10">
