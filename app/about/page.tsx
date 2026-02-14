@@ -27,7 +27,7 @@ export default function About() {
                                 </SpanText>
                                 <SpanText>
                                     with a passion for building innovative
-                                    solutions with tackling complex challenges.
+                                    solutions and tackling complex challenges.
                                 </SpanText>
                             </Box>
                             <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:700ms]">
@@ -44,7 +44,7 @@ export default function About() {
                                 </SpanText>
                                 <SpanText span>from crafting </SpanText>
                                 <SpanText className="text-red-400" span>
-                                    commmand-line tools{" "}
+                                    command-line tools{" "}
                                 </SpanText>
                                 <SpanText span>to orchestrating </SpanText>
                                 <SpanText className="text-red-400" span>
@@ -66,7 +66,7 @@ export default function About() {
                                 </SpanText>
                                 <SpanText span>, and </SpanText>
                                 <SpanText className="text-red-400" span>
-                                    server-side development
+                                    DevSecOps engineering
                                 </SpanText>
                                 <SpanText span>
                                     , reflecting my versatile approach to tech.
@@ -74,18 +74,35 @@ export default function About() {
                             </Box>
                             <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:900ms]">
                                 <SpanText>
-                                    In addition to backend expertise, I&apos;ve
-                                    delved into{" "}
+                                    Currently, I&apos;m working as a{" "}
                                 </SpanText>
                                 <SpanText className="text-red-400">
-                                    fontend and full-stack development
+                                    DevSecOps Engineer at NCS Singapore
                                 </SpanText>
-                                ,{" "}
                                 <SpanText>
-                                    building projects like this very{" "}
+                                    , where I bridge the gap between
+                                    development, security, and operations.
+                                    Beyond my professional role, I continue
+                                    building{" "}
                                 </SpanText>
                                 <SpanText className="text-red-400">
-                                    {" "}
+                                    full-stack projects
+                                </SpanText>
+                                <SpanText> like </SpanText>
+                                <SpanText className="text-red-400">
+                                    GopherGate
+                                </SpanText>
+                                <SpanText> — a VPN solution using </SpanText>
+                                <SpanText className="text-red-400">
+                                    WireGuard, Golang
+                                </SpanText>
+                                <SpanText>
+                                    , with a UI, CLI, and robust backend. My
+                                    frontend and full-stack development skills
+                                    shine through in projects like this
+                                    very{" "}
+                                </SpanText>
+                                <SpanText className="text-red-400">
                                     digital portfolio
                                 </SpanText>
                                 <SpanText>
@@ -99,25 +116,28 @@ export default function About() {
                                 </SpanText>
                             </Box>
                             <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:1100ms]">
-                                <SpanText>Having graduated in </SpanText>
+                                <SpanText>Since graduating in </SpanText>
                                 <SpanText className="text-red-400">
                                     April 2025
                                 </SpanText>
                                 <SpanText>
-                                    , I&apos;m eager to transition into the
-                                    professional world as an{" "}
+                                    , I&apos;ve transitioned into the
+                                    professional world, now contributing to{" "}
                                 </SpanText>
                                 <SpanText className="text-red-400">
-                                    AI Engineer
+                                    secure and scalable systems
                                 </SpanText>
                                 <SpanText>
-                                    , contributing to advancing{" "}
+                                    {" "}
+                                    at NCS while continuing to explore the
+                                    frontiers of{" "}
                                 </SpanText>
                                 <SpanText className="text-red-400">
-                                    modern AI systems{" "}
+                                    AI and cybersecurity
                                 </SpanText>
                                 <SpanText>
-                                    and driving impactful change.
+                                    {" "}
+                                    through hands-on projects and innovation.
                                 </SpanText>
                             </Box>
                         </Stack>
@@ -139,15 +159,15 @@ export default function About() {
                 </Group>
                 {/* second part (outside of work) */}
                 <Group wrap="nowrap" gap={0} align="top">
-                    <Box className="text-white w-2/5 flex justify-center items-center animate-right-slideIn opacity-0 [animation-timeline:view()] [animation-range-start:10%] [animation-range-end:70%]">
+                    <Box className="text-white w-2/5 flex justify-center items-center animate-right-slideIn opacity-0 [animation-timeline:view()] [animation-range-start:5%] [animation-range-end:30%]">
                         <ImageGallery />
                     </Box>
                     <Stack className="p-10 text-gray-200 w-3/5" gap="xl">
-                        <Text className="text-5xl font-heading animate-staggered-text-down opacity-0 [--slidein-delay:300ms] [animation-timeline:view()] [animation-range-start:10%] [animation-range-end:40%]">
+                        <Text className="text-5xl font-heading animate-staggered-text-down opacity-0 [--slidein-delay:300ms] [animation-timeline:view()] [animation-range-start:5%] [animation-range-end:20%]">
                             When I&apos;m Not Coding...
                         </Text>
                         <Stack gap="lg">
-                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:500ms] [animation-timeline:view()] [animation-range-start:10%] [animation-range-end:45%]">
+                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:500ms] [animation-timeline:view()] [animation-range-start:5%] [animation-range-end:25%]">
                                 <SpanText>
                                     Beyond the world of code and AI models,
                                     I&apos;m someone who finds joy in{" "}
@@ -163,7 +183,7 @@ export default function About() {
                                     creative outlet.
                                 </SpanText>
                             </Box>
-                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:700ms] [animation-timeline:view()] [animation-range-start:10%] [animation-range-end:50%]">
+                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:700ms] [animation-timeline:view()] [animation-range-start:5%] [animation-range-end:30%]">
                                 <SpanText>
                                     On the more melodic side, I&apos;ve been
                                     playing the{" "}
@@ -178,7 +198,7 @@ export default function About() {
                                     tech projects.
                                 </SpanText>
                             </Box>
-                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:900ms] [animation-timeline:view()] [animation-range-start:10%] [animation-range-end:55%]">
+                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:900ms] [animation-timeline:view()] [animation-range-start:5%] [animation-range-end:35%]">
                                 <SpanText>Balancing </SpanText>
                                 <SpanText className="text-red-400">
                                     technology, creativity, and music{" "}
