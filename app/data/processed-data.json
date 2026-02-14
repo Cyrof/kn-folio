@@ -2,13 +2,13 @@
     "skills": [
         {
             "name": "Python",
-             "description": "Used for AI, data analysis, and simple automation tasks.",
-             "icon": "https://img.icons8.com/?size=100&id=13441&format=png&color=000000"
+            "description": "Used for AI, data analysis, and simple automation tasks.",
+            "icon": "https://img.icons8.com/?size=100&id=13441&format=png&color=000000"
         },
         {
-             "name": "C",
-             "description": "Used for low level system programming and performance-critical modules.",
-             "icon": "https://img.icons8.com/?size=100&id=40670&format=png&color=000000"
+            "name": "C",
+            "description": "Used for low level system programming and performance-critical modules.",
+            "icon": "https://img.icons8.com/?size=100&id=40670&format=png&color=000000"
         },
         {
             "name": "C++",
@@ -104,7 +104,7 @@
             "github": "https://github.com/Cyrof/kn-folio"
         },
         {
-            "name": "K3S Raspberry pi Cluster",
+            "name": "Cyrostack Pi Cluster",
             "description": "A Kubernetes ecosystem using 4 raspberry pi.",
             "url": "images/projects/cyrostack.png",
             "github": "https://github.com/Cyrof/rpi-home-server-config"
