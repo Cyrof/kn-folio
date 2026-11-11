@@ -1038,7 +1038,7 @@ main:focus {
 .about-portrait > div {
     position: relative;
     aspect-ratio: 0.8;
-    border-radius: 47% 47% 4px 4px;
+    border-radius: 10px 72px 10px 72px;
     overflow: hidden;
     background: var(--sage);
 }
