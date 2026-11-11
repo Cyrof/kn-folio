@@ -36,6 +36,11 @@ jobs:
             - name: Fetch tags
               run: git fetch --tags --force
 
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "18"
+
             - name: Compute next version
               id: version
               shell: bash
@@ -107,50 +112,7 @@ jobs:
               shell: bash
               env:
                   TAG: ${{ steps.version.outputs.tag }}
-              run: |
-                  set -euo pipefail
-
-                  FILE="CHANGELOG.md"
-                  DATE="$(date +'%Y-%m-%d')"
-
-                  if [ ! -f "$FILE" ]; then
-                    {
-                      echo "# Changelog"
-                      echo
-                      echo "---"
-                      echo
-                    } > "$FILE"
-                  fi
-
-                  cat > /tmp/entry.md <<EOF
-                  ## [${TAG}] - ${DATE}
-
-                  ### Added
-                  - (fill)
-
-                  ### Changed
-                  - (fill)
-
-                  ### Fixed
-                  - (fill)
-
-                  ### Removed
-                  - (fill)
-                  EOF
-
-                  sed -i 's/^          //' /tmp/entry.md
-
-                  if grep -Fq "## [${TAG}]" "$FILE"; then
-                    echo "CHANGELOG.md already contains ${TAG}." >&2
-                    exit 1
-                  fi
-
-                  awk 'NR==FNR{entry[count++]=$0; next}
-                       {print}
-                       !inserted && $0=="---"{print ""; for(i=0;i<count;i++) print entry[i]; inserted=1}
-                       END{if(!inserted){print ""; for(i=0;i<count;i++) print entry[i]; print ""}}' \
-                    /tmp/entry.md "$FILE" > /tmp/new_changelog
-                  mv /tmp/new_changelog "$FILE"
+              run: node scripts/prepare-changelog.mjs "$TAG"
 
             - name: Show dry run result
               if: ${{ inputs.dry_run }}

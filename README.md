@@ -33,6 +33,8 @@
     <a href="https://github.com/Cyrof/kn-folio/issues/new?labels=enhancement&template=feature-request.md">Request Feature</a>
     &middot;
     <a href="https://github.com/Cyrof/kn-folio/releases">Releases</a>
+    &middot;
+    <a href="CHANGELOG.md">Changelog</a>
   </p>
 </div>
 
@@ -141,9 +143,12 @@ kn-folio/
 |-- docs/resend-setup.md        # Email setup and Kubernetes migration guide
 |-- public/                    # Images, icons, and licensed local fonts
 |-- scripts/verify-preview.mjs  # Production preview checks
+|-- scripts/prepare-changelog.mjs # Promote Unreleased notes during release preparation
 |-- tests/contact.test.mjs      # Contact API regression tests
+|-- tests/changelog.test.mjs    # Release note preparation regression tests
 |-- .github/workflows/          # CI, linting, and release automation
 |-- .env.example               # Environment template without credentials
+|-- CHANGELOG.md               # Unreleased notes and release history
 |-- Dockerfile
 |-- LICENSE
 |-- package.json
@@ -332,22 +337,31 @@ docker build --build-arg SITE_URL=https://your-domain.example -t kn-folio:local 
 Canonical and social preview URLs are prerendered. Changing `SITE_URL` only at
 container runtime will not update those URLs; rebuild the image.
 
-Published releases are available as `cyrof/kn-folio:<version-tag>` and
-`cyrof/kn-folio:latest`. After the desired version has been published:
+Future releases publish to GitHub Container Registry (GHCR) as
+`ghcr.io/cyrof/kn-folio:<version-tag>` and `ghcr.io/cyrof/kn-folio:latest`.
+After a version containing the registry migration has been published:
 
 ```bash
-docker pull cyrof/kn-folio:latest
-docker run --rm --env-file .env.local -p 3000:3000 cyrof/kn-folio:latest
+docker pull ghcr.io/cyrof/kn-folio:latest
+docker run --rm --env-file .env.local -p 3000:3000 ghcr.io/cyrof/kn-folio:latest
 ```
 
-See the [Docker Hub repository](https://hub.docker.com/repository/docker/cyrof/kn-folio/general)
-for published images.
+The first GHCR publish creates a private package by default. After publishing,
+open the package settings and make it public if you want Docker and Kubernetes
+to pull without registry credentials. If you keep it private, authenticate with
+a token that has `read:packages` access and configure Kubernetes image pull
+credentials. See [GitHub's Container registry documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+for authentication and visibility details.
+
+Older Docker Hub images remain available at `cyrof/kn-folio`; future releases
+will not update those tags.
 
 ### Kubernetes
 
 The Helm chart is maintained separately in
 [CyroStack](https://github.com/Cyrof/CyroStack), under `portfolio/knfolio-chart`.
-Update its environment variables and Secret references for Resend before
+Set `image.repository` to `ghcr.io/cyrof/kn-folio` and choose the published version
+tag. Update its environment variables and Secret references for Resend before
 rolling out this version. The [setup guide](docs/resend-setup.md) covers the
 migration order, Secret creation, chart changes, rollout, and delivery checks.
 
@@ -371,6 +385,8 @@ npm run build
 Contact regression tests mock Resend HTTP requests. They do not read local
 credentials or send email. They cover validation, request formatting,
 configuration errors, provider failures, and timeouts.
+Changelog tests verify release-note promotion, preserved history, duplicate
+version rejection, and empty-note validation. Both suites run in CI.
 
 After building, start a production preview:
 
@@ -404,21 +420,26 @@ application checks from release preparation and publishing:
 
 | Workflow | Trigger And Behaviour |
 | --- | --- |
-| `ci.yaml` | Pull requests and pushes to `master`; builds Next.js and the Docker image |
+| `ci.yaml` | Pull requests and pushes to `master`; runs tests and builds Next.js and the Docker image |
 | `lint.yaml` | Pull requests or manual dispatch; runs ESLint |
-| `prepare-release.yaml` | Manual dispatch; bumps the version, prepares changelog entries, and opens a `release/vX.Y.Z` pull request into `stable` |
-| `release.yaml` | A merged `release/*` pull request into `stable`, or manual dispatch; publishes the Git tag, GitHub Release, and Docker images |
+| `prepare-release.yaml` | Manual dispatch; bumps the version, promotes Unreleased changelog notes, and opens a `release/vX.Y.Z` pull request into `stable` |
+| `release.yaml` | A merged `release/*` pull request into `stable`, or manual dispatch; publishes the Git tag, GitHub Release, and GHCR images |
 
 For a normal release:
 
-1. Merge application changes into `master`.
-2. Run `prepare-release` with a patch, minor, or major bump. Its dry-run option previews changes without pushing a branch or pull request.
-3. Replace the generated changelog placeholders and review the release pull request.
+1. Merge changes into `master` and record user-facing changes under `[Unreleased]` in [CHANGELOG.md](CHANGELOG.md).
+2. Run `prepare-release` with a patch, minor, or major bump. Its dry-run option previews changes without pushing a branch or pull request. Preparation moves the Unreleased notes into a dated version entry and creates a fresh Unreleased heading; empty notes or duplicate versions stop preparation.
+3. Review the version, release notes, and changes in the release pull request.
 4. Merge the release pull request into `stable` to publish the versioned and `latest` images.
-5. Roll out the published image through the deployment workflow in CyroStack.
+5. On the first GHCR release, configure package visibility or pull credentials, then update the image repository and roll out the published image through CyroStack.
+6. Merge `stable` back into `master` so the released version and changelog history are retained before recording notes for the next release. Preserve any newer Unreleased notes when resolving conflicts.
 
 Release tags are created during publishing, after the release pull request has
 merged. Publishing an image does not update the Kubernetes deployment automatically.
+
+GHCR publishing uses the workflow's `GITHUB_TOKEN` with `packages: write`; Docker
+Hub secrets are no longer used. The separate `GH_PAT` credential used by
+`prepare-release` to create release branches and pull requests is unchanged.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

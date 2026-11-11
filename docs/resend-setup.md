@@ -151,6 +151,9 @@ Save the following values in
 them into the values file used by your existing deployment workflow:
 
 ```yaml
+image:
+  repository: ghcr.io/cyrof/kn-folio
+
 existingSecret:
   enabled: true
   name: knfolio-resend-secrets
@@ -164,6 +167,12 @@ upgrading the release. The portfolio pod needs outbound DNS resolution and HTTPS
 access to `api.resend.com:443`. These instructions do not apply changes to the
 CyroStack repository or your cluster automatically.
 
+New releases publish to GHCR. After the first publish, make the package public
+for anonymous pulls, or configure image pull credentials in the chart for a
+private package. GitHub creates new container packages as private by default;
+see [the Container registry documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
+Existing Docker Hub tags will not receive future releases.
+
 ## 7. Deploy the version containing the Resend changes
 
 Build and publish an image containing the new route through the normal release
@@ -171,7 +180,7 @@ pipeline. Then, from the CyroStack checkout, choose the published tag and render
 the chart for review:
 
 ```powershell
-$imageTag = Read-Host "Published cyrof/kn-folio image tag containing the Resend changes"
+$imageTag = Read-Host "Published ghcr.io/cyrof/kn-folio image tag containing the Resend changes"
 helm template knfolio ./portfolio/knfolio-chart --namespace folio --values ./portfolio/knfolio-chart/resend-values.yaml --set-string "image.tag=$imageTag"
 ```
 
