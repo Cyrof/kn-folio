@@ -37,6 +37,24 @@ const details = [
         note: "Making complex recurring tasks easier to manage.",
         visual: "cycle",
     },
+    {
+        github: "https://github.com/Cyrof/GopherGate",
+        name: "GopherGate",
+        category: "Networking & infrastructure",
+        tags: ["Go", "WireGuard", "gRPC", "PostgreSQL"],
+        tone: "blue",
+        note: "Bringing structure to WireGuard peer management.",
+        visual: "image",
+    },
+    {
+        github: "https://github.com/OurNeZt",
+        name: "OurNeZt",
+        category: "Full-stack application",
+        tags: ["Go", "Gin", "gRPC", "PostgreSQL", "Tailwind CSS"],
+        tone: "rose",
+        note: "A shared space for planning a home and a future together.",
+        visual: "image",
+    },
 ];
 
 const detailsByRepository = new Map(
@@ -58,7 +76,7 @@ export const projects = data.projects.map((project, index) => ({
 
 // Keep the home-page selection independent of the full project collection.
 export const featuredProjects = [
-    "https://github.com/Cyrof/kn-folio",
+    "https://github.com/OurNeZt",
     "https://github.com/Cyrof/rpi-home-server-config",
 ].flatMap((github) => projects.filter((project) => project.github === github));
 
