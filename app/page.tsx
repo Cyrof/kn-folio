@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+import Experience from "./components/experience";
 import Projects from "./components/projects";
 import { featuredProjects } from "./data/portfolio";
 
@@ -39,8 +40,7 @@ export default function Home() {
             <section className="container hero" aria-labelledby="hero-title">
                 <div className="hero-copy">
                     <p className="eyebrow">
-                        <span className="status-dot" /> DEVSECOPS ENGINEER &
-                        CREATIVE THINKER
+                        <span className="status-dot" /> AI SYSTEM ENGINEER
                     </p>
                     <h1 id="hero-title">
                         Hi, I&apos;m Keith<span className="accent">.</span>
@@ -50,11 +50,11 @@ export default function Home() {
                         digital world.
                     </h1>
                     <p className="hero-description">
-                        An engineer&apos;s curiosity. A builder&apos;s mindset.
-                        <br className="desktop-break" /> Exploring the
-                        intersection of AI, cybersecurity,
-                        <br className="desktop-break" /> and thoughtful
-                        software.
+                        Building secure, intelligent systems today.
+                        <br className="desktop-break" /> Moving toward solution
+                        architecture,
+                        <br className="desktop-break" /> with hands-on
+                        experience in AI and DevSecOps.
                     </p>
                     <div className="hero-actions">
                         <Link href="/myWork" className="button button-primary">
@@ -149,6 +149,7 @@ export default function Home() {
                 </div>
                 <Projects items={featuredProjects} />
             </section>
+            <Experience />
             <section
                 className="expertise-section"
                 aria-labelledby="approach-title"
@@ -157,7 +158,7 @@ export default function Home() {
                     <div className="section-heading">
                         <div>
                             <p className="eyebrow">
-                                <span className="section-index">02 /</span> MY
+                                <span className="section-index">03 /</span> MY
                                 APPROACH
                             </p>
                             <h2 id="approach-title">
@@ -195,7 +196,7 @@ export default function Home() {
                 aria-labelledby="about-title"
             >
                 <p className="eyebrow">
-                    <span className="section-index">03 /</span> THE PERSON
+                    <span className="section-index">04 /</span> THE PERSON
                     BEHIND THE CODE
                 </p>
                 <div>
@@ -206,9 +207,12 @@ export default function Home() {
                     </h2>
                     <p>
                         Since 2018, I&apos;ve followed my curiosity through
-                        code, cameras, and guitar strings. Today, I work as a
-                        DevSecOps Engineer at NCS Singapore, and keep that same
-                        spirit of exploration in everything I build.
+                        code, cameras, and guitar strings. Today, I work as an
+                        AI System Engineer at NCS Singapore, with hands-on
+                        experience in DevSecOps. As I prepare to move into
+                        solution architecture, I bring that same spirit of
+                        exploration to the systems I build and the decisions
+                        behind them.
                     </p>
                     <Link href="/about" className="text-link">
                         More of my story{" "}

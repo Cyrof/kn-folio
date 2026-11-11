@@ -3,11 +3,12 @@
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const links = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
+    { href: "/#experience", label: "Experience" },
     { href: "/myWork", label: "Work" },
     { href: "/skills", label: "Skills" },
     { href: "/contact", label: "Contact" },
@@ -16,7 +17,56 @@ const links = [
 export default function NavBar() {
     const pathname = usePathname();
     const [open, setOpen] = useState(false);
+    const [experienceInView, setExperienceInView] = useState(false);
     const toggle = useRef<HTMLButtonElement>(null);
+    const experienceActive = pathname === "/" && experienceInView;
+
+    function currentLocation(href: string): "page" | "location" | undefined {
+        if (href === "/#experience") {
+            return experienceActive ? "location" : undefined;
+        }
+        if (href === "/" && experienceActive) return undefined;
+        return pathname === href ? "page" : undefined;
+    }
+
+    useEffect(() => {
+        if (pathname !== "/") return;
+        const section = document.getElementById("experience");
+        if (!section) return;
+        const header = document.querySelector(".site-header");
+        let frame: number | null = null;
+
+        const updateActiveSection = () => {
+            const bounds = section.getBoundingClientRect();
+            // Match the page's anchor offset, including the mobile header.
+            const readingLine = Math.max(
+                110,
+                (header?.getBoundingClientRect().bottom ?? 0) + 24,
+            );
+            setExperienceInView(
+                bounds.top <= readingLine + 1 && bounds.bottom > readingLine,
+            );
+        };
+
+        function scheduleUpdate() {
+            if (frame !== null) return;
+            frame = window.requestAnimationFrame(() => {
+                frame = null;
+                updateActiveSection();
+            });
+        }
+
+        updateActiveSection();
+        window.addEventListener("scroll", scheduleUpdate, { passive: true });
+        window.addEventListener("resize", scheduleUpdate);
+        window.addEventListener("hashchange", scheduleUpdate);
+        return () => {
+            window.removeEventListener("scroll", scheduleUpdate);
+            window.removeEventListener("resize", scheduleUpdate);
+            window.removeEventListener("hashchange", scheduleUpdate);
+            if (frame !== null) window.cancelAnimationFrame(frame);
+        };
+    }, [pathname]);
 
     return (
         <header className="site-header">
@@ -61,9 +111,7 @@ export default function NavBar() {
                         <Link
                             key={link.href}
                             href={link.href}
-                            aria-current={
-                                pathname === link.href ? "page" : undefined
-                            }
+                            aria-current={currentLocation(link.href)}
                             onClick={() => setOpen(false)}
                         >
                             {link.label}

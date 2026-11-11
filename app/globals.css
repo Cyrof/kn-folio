@@ -1968,3 +1968,107 @@ main:focus {
     letter-spacing: 0.12em;
     text-transform: uppercase;
 }
+
+.experience-section {
+    border-top: 1px solid var(--line);
+}
+.experience-entry {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.8fr);
+    gap: 48px;
+    padding: 34px;
+    background: var(--sage);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 7px;
+}
+.experience-status {
+    color: var(--muted);
+    font-size: 9px;
+    margin-bottom: 20px;
+}
+.experience-role h3 {
+    font-size: 27px;
+    line-height: 1.2;
+}
+.experience-company {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 14px;
+}
+.experience-department {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 3px;
+}
+.experience-dates {
+    color: var(--accent-dark);
+    font-size: 12px;
+    margin-top: 18px;
+}
+.experience-summary {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-top: 18px;
+}
+.experience-technologies {
+    gap: 7px;
+    margin-top: 22px;
+}
+.experience-technologies li {
+    font-size: 10px;
+    background: var(--paper);
+}
+.experience-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 27px 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.experience-highlights li {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+}
+.experience-highlights h4 {
+    margin: 0 0 10px;
+    font-family: var(--font-heading), sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.025em;
+}
+.experience-highlights p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+.about-experience-link {
+    display: flex;
+    width: fit-content;
+    margin-top: 8px;
+}
+@media (max-width: 950px) {
+    .experience-entry {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 28px;
+    }
+    .experience-summary {
+        max-width: 560px;
+    }
+}
+@media (max-width: 650px) {
+    .experience-entry {
+        padding: 24px 20px;
+    }
+    .experience-role h3 {
+        font-size: 25px;
+    }
+    .experience-highlights {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}

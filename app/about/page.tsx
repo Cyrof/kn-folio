@@ -60,8 +60,9 @@ export default function About() {
                         tools, and DevSecOps engineering.
                     </p>
                     <p>
-                        Today, I work as a{" "}
-                        <strong>DevSecOps Engineer at NCS Singapore</strong>,
+                        Today, I work as an{" "}
+                        <strong>AI System Engineer at NCS Singapore</strong>, in
+                        the Video Intelligence department since August 2025,
                         bridging development, security, and operations. Since
                         graduating in April 2025, I&apos;ve been contributing to
                         secure and scalable systems while continuing to explore
@@ -77,6 +78,13 @@ export default function About() {
                     </p>
                     <Link href="/myWork" className="text-link">
                         See what I&apos;ve been building{" "}
+                        <ArrowUpRight size={17} aria-hidden="true" />
+                    </Link>
+                    <Link
+                        href="/#experience"
+                        className="text-link about-experience-link"
+                    >
+                        Explore my professional experience{" "}
                         <ArrowUpRight size={17} aria-hidden="true" />
                     </Link>
                 </div>
