@@ -20,10 +20,31 @@ const heading = localFont({
 });
 
 export const metadata: Metadata = {
-    title: "Keith Neo - AI & Cybersecurity Portfolio",
+    metadataBase: new URL(
+        process.env.SITE_URL || "https://knfolio.cyrostack.dev",
+    ),
+    title: {
+        default: "Keith Neo — AI System Engineer",
+        template: "%s | Keith Neo",
+    },
     description:
-        "Digital portfolio showcasing my journey in AI and Cybersecurity",
-    icons: { icon: "/images/assets/portfolio.svg" },
+        "Keith Neo is an AI System Engineer in Singapore with DevSecOps experience, preparing to move into solution architecture. Explore projects in AI, infrastructure, and software.",
+    applicationName: "Keith Neo Portfolio",
+    openGraph: {
+        title: "Keith Neo — AI System Engineer",
+        description:
+            "AI engineering and DevSecOps experience, with a growing focus on solution architecture. Explore Keith's projects and the systems behind them.",
+        type: "website",
+        locale: "en_SG",
+        siteName: "Keith Neo",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Keith Neo — AI System Engineer",
+        description:
+            "AI engineering, DevSecOps experience, and a growing focus on solution architecture. Explore my projects and get in touch.",
+    },
+    icons: { icon: "/icon.svg" },
 };
 
 export const viewport = { themeColor: "#443641" };

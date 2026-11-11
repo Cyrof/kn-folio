@@ -16,6 +16,8 @@ import Experience from "./components/experience";
 import Projects from "./components/projects";
 import { featuredProjects } from "./data/portfolio";
 
+export const metadata = { alternates: { canonical: "/" } };
+
 const expertise = [
     {
         icon: ShieldCheck,

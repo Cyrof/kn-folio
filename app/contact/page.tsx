@@ -1,6 +1,14 @@
 ﻿import { ArrowUpRight, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import type { Metadata } from "next";
 
 import ContactForm from "../components/contactForm";
+
+export const metadata: Metadata = {
+    alternates: { canonical: "/contact" },
+    title: "Contact",
+    description:
+        "Have a project, a question, or an idea? Get in touch with Keith Neo by email, LinkedIn, or the portfolio contact form.",
+};
 
 export default function Contact() {
     return (

@@ -1,9 +1,17 @@
 ﻿import { ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import Projects from "../components/projects";
 import Skills from "../components/skills";
 import { projects } from "../data/portfolio";
+
+export const metadata: Metadata = {
+    alternates: { canonical: "/myWork" },
+    title: "Work & Projects",
+    description:
+        "Explore Keith Neo's six projects, including GopherGate WireGuard management, OurNeZt household and housing planning, a Kubernetes cluster, AI, and web applications.",
+};
 
 export default function MyWork() {
     return (

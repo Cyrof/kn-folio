@@ -1,7 +1,15 @@
 ﻿import { ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import Skills from "../components/skills";
+
+export const metadata: Metadata = {
+    alternates: { canonical: "/skills" },
+    title: "Skills & Toolkit",
+    description:
+        "Explore Keith Neo's skills in programming, full-stack development, databases, Kubernetes, automation, and AI. Discover how each tool is used.",
+};
 
 export default function SkillsPage() {
     return (

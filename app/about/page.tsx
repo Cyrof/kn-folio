@@ -1,8 +1,16 @@
 import { ArrowUpRight, MapPin } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 import ImageGallery from "../components/imageGallery";
+
+export const metadata: Metadata = {
+    alternates: { canonical: "/about" },
+    title: "About",
+    description:
+        "Meet Keith Neo: AI System Engineer with experience in AI infrastructure, DevSecOps, and cybersecurity. Photographer and guitarist based in Singapore.",
+};
 
 export default function About() {
     return (
