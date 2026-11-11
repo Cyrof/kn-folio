@@ -27,22 +27,23 @@ This is my personal digital portfolio, showcasing my skills, projects, and a con
     npm ci
     ```
 3. **Create your environment file**
-    In the project root, create a `.env.local` file (this is ignored by Git):
+    Copy `.env.example` to `.env.local` (which is ignored by Git).
+4. **Configure Resend in `.env.local`**
     ```bash
-    touch .env.local
-    ```
-4. **Populate `.env.local`**
-    ```bash
-    EMAIL_USER=you@example.com
-    EMAIL_PASS=your_email_app_password
+    RESEND_API_KEY=your_resend_api_key
+    CONTACT_FROM_EMAIL=Keith Portfolio <portfolio@mail.cyrostack.dev>
     RECIPIENT_EMAIL=your_personal@inbox.com
     ```
+    Verify the sending domain in Resend first. Follow the
+    [Resend setup guide](docs/resend-setup.md) for Cloudflare DNS, local testing,
+    and the Kubernetes migration. No credentials are required to build or browse
+    the site; the contact endpoint needs all three settings to send email.
 
 ### Environment Variables 
 | key | Description |
 | --- | --- | 
-| `EMAIL_USER` | Email address the app will send _from_ (e.g., a noreply address
-| `EMAIL_PASS` | App-specific password or SMTP credential for `EMAIL_USER` |
+| `RESEND_API_KEY` | Server-only Resend API key with sending access to the verified domain |
+| `CONTACT_FROM_EMAIL` | Sender on the verified domain, optionally formatted as `Keith Portfolio <portfolio@mail.cyrostack.dev>` |
 | `RECIPIENT_EMAIL` | Your inbox where contact-form messages will be delivered |
 | `SITE_URL` | Optional public-origin override, set before building for canonical links and absolute social image URLs. Defaults to `https://knfolio.cyrostack.dev`. |
 
@@ -78,7 +79,9 @@ presentation details and skill grouping live in `app/data/portfolio.ts`.
 Skill descriptions use native keyboard-accessible disclosures. Navigation has
 active-page indicators, an Escape-dismissable mobile menu, and a skip link.
 Contact fields have associated labels, browser validation, and announced status
-messages. The existing `/api/contact` endpoint and SMTP configuration are retained.
+messages. The `/api/contact` endpoint sends through Resend's HTTPS API, with the
+visitor's email as Reply-To. Provider rejection, timeout, or missing configuration
+returns an error so the form preserves the visitor's note for retrying.
 
 Fonts are self-hosted with their licenses in `public/fonts`. Optimized WebP
 photos in `public/images/optimized` are served through Next Image with responsive
@@ -98,8 +101,8 @@ npm test
 npm run build
 ```
 
-Contact regression tests replace SMTP with an in-memory transport and never send
-email. With the production server running, verify rendered content, metadata,
+Contact regression tests mock the Resend HTTP API and never send email or read
+local credentials. With the production server running, verify rendered content, metadata,
 local links, optimized image responses, and empty-form validation:
 
 ```bash
@@ -111,7 +114,7 @@ Browser review should include 1440px desktop, 768px tablet, and 390px/320px mobi
 widths on all five pages. Check horizontal overflow, image cropping, menu opening
 and Escape dismissal, visible keyboard focus, skill disclosures, required/email
 validation, and form loading/success/error announcements. Live email delivery
-requires the SMTP environment variables above. Resume downloading and security
+requires the Resend environment variables above. Resume downloading and security
 review remain separate workstreams.
 
 ## Docker Deployment 
@@ -119,13 +122,17 @@ A Docker image is published to Docker Hub when a release pull request is merged 
 ```bash
 docker pull cyrof/kn-folio:latest
 docker run -d \
-    -e EMAIL_USER \
-    -e EMAIL_PASS \
+    -e RESEND_API_KEY \
+    -e CONTACT_FROM_EMAIL \
     -e RECIPIENT_EMAIL \
     -p 3000:3000 \
     cyrof/kn-folio:latest
 ```
 For full Docker-specific instructions, see the [Docker Hub README](https://hub.docker.com/repository/docker/cyrof/kn-folio/general).
+The Kubernetes chart is maintained separately in CyroStack. Update its email
+environment variables and Secret references before deploying the Resend version.
+The [setup guide](docs/resend-setup.md) explains the required chart changes and
+order of operations.
 
 ## CI/CD
 GitHub Actions are used to lint and build changes on pull requests to `master`. Start a release with the `prepare-release` workflow; it creates a versioned release branch and pull request to `stable`. After the changelog is reviewed and that pull request is merged, the `release` workflow creates the GitHub release and publishes Docker images tagged with the version and `latest`.

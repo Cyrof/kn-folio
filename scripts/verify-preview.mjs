@@ -156,7 +156,7 @@ const response = await fetch(new URL("/api/contact", origin), {
 assert.equal(
     response.status,
     400,
-    "Empty contact form is rejected before SMTP",
+    "Empty contact form is rejected before contacting Resend",
 );
 console.log(
     `PASS ${assets.size} local links/assets and contact validation; no email sent`,
