@@ -1,53 +1,76 @@
-// my work page
-import NavBar from "../components/navbar";
-import Footer from "../components/footer";
-import TextReveal from "../components/textReveal";
-import Skills from "../components/skills";
-import Projects from "../components/projects";
-import { Box, Center, Group, Stack, Text } from "@mantine/core";
+﻿import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
-export default function myWork() {
+import Projects from "../components/projects";
+import Skills from "../components/skills";
+import { projects } from "../data/portfolio";
+
+export default function MyWork() {
     return (
-        <>
-            <NavBar />
-            <Stack>
-                {/* header */}
-                <Center className="w-full h-auto mt-5">
-                    <TextReveal />
-                </Center>
-                {/* skills */}
-                <Group
-                    className="my-16 w-full h-5/6 px-5"
-                    gap={0}
-                    wrap="nowrap"
-                >
-                    <Center className="h-auto w-[5%] m-0 opacity-0 animate-right-slideIn [animation-delay:500ms]">
-                        <Text className="[writing-mode:vertical-lr] rotate-180 text-4xl font-bold text-gray-200">
-                            My Skills
-                        </Text>
-                    </Center>
-                    <Skills />
-                    {/* placeholder */}
-                    <Box className="w-[5%] h-auto" />
-                </Group>
-                {/* projects */}
-                <Group
-                    className="my-16 w-full h-5/6 px-5"
-                    gap={0}
-                    wrap="nowrap"
-                >
-                    {/* placeholder */}
-                    <Box className="w-[5%] h-auto" />
-                    <Projects />
-                    {/* header */}
-                    <Center className="h-auto w-[5%] animate-left-slidein opacity-0 [animation-timeline:view()] [animation-range-start:5%] [animation-range-end:15%]">
-                        <Text className="[writing-mode:vertical-lr] text-4xl font-bold text-gray-200">
-                            My Projects
-                        </Text>
-                    </Center>
-                </Group>
-            </Stack>
-            <Footer />
-        </>
+        <div className="container">
+            <header className="page-heading">
+                <p className="eyebrow">
+                    EXPERIMENTS. EXPLORATIONS. THINGS THAT WORK.
+                </p>
+                <h1>
+                    Learning by doing.
+                    <br />
+                    <span className="serif">Building with purpose.</span>
+                </h1>
+                <div className="page-heading-bottom">
+                    <p>
+                        A collection of projects across software,
+                        infrastructure, and AI.
+                        <br />
+                        Every one started with a question: what if?
+                    </p>
+                    <a
+                        className="text-link"
+                        href="https://github.com/Cyrof"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        More on GitHub{" "}
+                        <ArrowUpRight size={17} aria-hidden="true" />
+                        <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                </div>
+            </header>
+            <section
+                className="section-bottom"
+                aria-labelledby="all-projects-title"
+            >
+                <div className="collection-heading">
+                    <h2 id="all-projects-title">
+                        Selected projects{" "}
+                        <span>
+                            ({String(projects.length).padStart(2, "0")})
+                        </span>
+                    </h2>
+                    <span>PERSONAL & COLLABORATIVE WORK</span>
+                </div>
+                <Projects />
+            </section>
+            <section
+                id="skills"
+                className="section work-skills"
+                aria-labelledby="work-skills-title"
+            >
+                <div className="section-heading">
+                    <div>
+                        <p className="eyebrow">THE TOOLS BEHIND THE WORK</p>
+                        <h2 id="work-skills-title">
+                            My ever-evolving{" "}
+                            <span className="serif">toolkit.</span>
+                        </h2>
+                    </div>
+                    <Link href="/skills" className="text-link">
+                        Explore my skills{" "}
+                        <ArrowUpRight size={17} aria-hidden="true" />
+                    </Link>
+                </div>
+                <Skills />
+            </section>
+        </div>
     );
 }

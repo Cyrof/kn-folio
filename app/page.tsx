@@ -1,82 +1,221 @@
-import NavBar from "./components/navbar";
-import Footer from "./components/footer";
-import { Box, Group, Image, Stack, Text, Anchor } from "@mantine/core";
+import {
+    ArrowDown,
+    ArrowRight,
+    ArrowUpRight,
+    Code2,
+    Github,
+    Linkedin,
+    MapPin,
+    ShieldCheck,
+    Sparkles,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+import Projects from "./components/projects";
+import { featuredProjects } from "./data/portfolio";
+
+const expertise = [
+    {
+        icon: ShieldCheck,
+        name: "Secure by design",
+        text: "Bringing development, security, and operations together to build systems you can trust.",
+    },
+    {
+        icon: Sparkles,
+        name: "Curious about AI",
+        text: "Exploring machine learning and computer vision through practical, hands-on projects.",
+    },
+    {
+        icon: Code2,
+        name: "Built from the ground up",
+        text: "From full-stack applications to a self-built Raspberry Pi cluster. Learning by making.",
+    },
+];
 
 export default function Home() {
     return (
         <>
-            <NavBar />
-            <Group className="my-16" wrap="nowrap" gap={0}>
-                {/* left side */}
-                <Box className="w-1/2 relative animate-right-slideIn opacity-0">
-                    <Image
-                        src="images/home/main.png"
-                        alt="about_me_1"
-                        className="w-[45rem] h-auto"
-                    />
-                </Box>
-                {/* right side */}
-                <Stack className="w-1/2 z-10" gap="xl" justify="center">
-                    <Box className="text text-white text-left md:w-4/5">
-                        <Text className="text-6xl font-heading animate-staggered-text-up opacity-0 [--slidein-delay:300ms]">
-                            Hello! I am
-                        </Text>
-                        <Text className="text-9xl text-red-400 font-heading animate-staggered-text-up opacity-0 [--slidein-delay:500ms]">
-                            Keith.
-                        </Text>
-                        <Text className="text-5xl font-heading animate-staggered-text-up opacity-0 [--slidein-delay:700ms]">
-                            I&apos;m a DevSecOps Engineer specialising in AI &
-                            Cybersecurity
-                        </Text>
-                    </Box>
-                    <Stack gap="lg">
-                        <Group
-                            className="animate-staggered-text-up opacity-0 [--slidein-delay:900ms]"
-                            gap="md"
+            <section className="container hero" aria-labelledby="hero-title">
+                <div className="hero-copy">
+                    <p className="eyebrow">
+                        <span className="status-dot" /> DEVSECOPS ENGINEER &
+                        CREATIVE THINKER
+                    </p>
+                    <h1 id="hero-title">
+                        Hi, I&apos;m Keith<span className="accent">.</span>
+                        <br />I build for a<br />
+                        <span className="serif">smarter, safer</span>
+                        <br />
+                        digital world.
+                    </h1>
+                    <p className="hero-description">
+                        An engineer&apos;s curiosity. A builder&apos;s mindset.
+                        <br className="desktop-break" /> Exploring the
+                        intersection of AI, cybersecurity,
+                        <br className="desktop-break" /> and thoughtful
+                        software.
+                    </p>
+                    <div className="hero-actions">
+                        <Link href="/myWork" className="button button-primary">
+                            Explore my work{" "}
+                            <ArrowUpRight size={18} aria-hidden="true" />
+                        </Link>
+                        <Link href="/about" className="text-link">
+                            A little about me{" "}
+                            <ArrowRight size={17} aria-hidden="true" />
+                        </Link>
+                    </div>
+                    <div className="hero-socials">
+                        <span>FIND ME ON</span>
+                        <a
+                            href="https://github.com/Cyrof"
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="GitHub (opens in a new tab)"
                         >
-                            {/* github */}
-                            <Anchor
-                                href="https://github.com/Cyrof"
-                                target="_blank"
-                                className="group h-14 w-14 rounded-full"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-14 w-14 fill-red-500 group-hover:fill-red-400 transition-colors duration-300 rounded-full shadow-lg shadow-inherit border border-red-400"
-                                    viewBox="0 0 97.707 97.707"
-                                >
-                                    <path d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" />
-                                </svg>
-                            </Anchor>
-                            {/* linkedin */}
-                            <Anchor
-                                href="https://www.linkedin.com/in/keithnks"
-                                target="_blank"
-                                className="group h-14 w-14 rounded-full"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="bi bi-linkedin w-14 h-14 fill-red-500 group-hover:fill-red-400 transition-colors duration-300 rounded-full shadow-lg shadow-inherit border border-red-400"
-                                    viewBox="0 0 16 16"
-                                >
-                                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                                </svg>
-                            </Anchor>
-                        </Group>
-                        <Box className="animate-staggered-text-up opacity-0 [--slidein-delay:1100ms]">
-                            <Anchor
-                                href="/contact"
-                                underline="never"
-                                className="bg-red-500 text-lg text-gray-200 rounded-3xl p-3 border border-red-400 hover:bg-[#f55D5D] shadow-lg shadow-inherit transition-colors duration-300"
-                            >
-                                Contact Me
-                            </Anchor>
-                            {/* Can add resume button */}
-                        </Box>
-                    </Stack>
-                </Stack>
-            </Group>
-            <Footer />
+                            <Github size={18} aria-hidden="true" /> GitHub{" "}
+                            <ArrowUpRight size={13} aria-hidden="true" />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/keithnks"
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="LinkedIn (opens in a new tab)"
+                        >
+                            <Linkedin size={18} aria-hidden="true" /> LinkedIn{" "}
+                            <ArrowUpRight size={13} aria-hidden="true" />
+                        </a>
+                    </div>
+                </div>
+                <div className="hero-visual">
+                    <div className="portrait-frame">
+                        <Image
+                            src="/images/optimized/portrait.webp"
+                            alt="Keith Neo at the Singapore Botanic Gardens"
+                            fill
+                            priority
+                            sizes="(max-width: 650px) 90vw, (max-width: 1000px) 43vw, 440px"
+                            className="hero-portrait"
+                        />
+                        <span className="portrait-label">
+                            A WORK IN PROGRESS. ALWAYS.
+                        </span>
+                    </div>
+                    <span className="portrait-mark" aria-hidden="true">
+                        <Code2 strokeWidth={1.5} />
+                    </span>
+                    <div className="portrait-note">
+                        <span className="note-line" aria-hidden="true">
+                            ↳
+                        </span>{" "}
+                        Always learning.
+                        <br />
+                        Always building.
+                    </div>
+                    <div className="location-label">
+                        <MapPin size={15} aria-hidden="true" /> Based in
+                        Singapore <span>01° N, 103° E</span>
+                    </div>
+                </div>
+            </section>
+            <div className="container intro-strip">
+                <span>SECURITY MINDED. POSSIBILITY DRIVEN.</span>
+                <p>Turning complex challenges into things that work.</p>
+                <a href="#selected-work" aria-label="Scroll to selected work">
+                    <ArrowDown size={20} aria-hidden="true" />
+                </a>
+            </div>
+            <section
+                id="selected-work"
+                className="section container"
+                aria-labelledby="work-title"
+            >
+                <div className="section-heading">
+                    <div>
+                        <p className="eyebrow">
+                            <span className="section-index">01 /</span> SELECTED
+                            WORK
+                        </p>
+                        <h2 id="work-title">
+                            A few things I&apos;ve{" "}
+                            <span className="serif">built.</span>
+                        </h2>
+                    </div>
+                    <Link className="text-link" href="/myWork">
+                        View all projects{" "}
+                        <ArrowUpRight size={17} aria-hidden="true" />
+                    </Link>
+                </div>
+                <Projects items={featuredProjects} />
+            </section>
+            <section
+                className="expertise-section"
+                aria-labelledby="approach-title"
+            >
+                <div className="container section">
+                    <div className="section-heading">
+                        <div>
+                            <p className="eyebrow">
+                                <span className="section-index">02 /</span> MY
+                                APPROACH
+                            </p>
+                            <h2 id="approach-title">
+                                Different disciplines.
+                                <br />
+                                One <span className="serif">curious mind.</span>
+                            </h2>
+                        </div>
+                        <p className="section-description">
+                            I connect the dots between secure infrastructure,
+                            intelligent systems, and the people who use them.
+                        </p>
+                    </div>
+                    <div className="expertise-grid">
+                        {expertise.map(({ icon: Icon, name, text }) => (
+                            <article key={name}>
+                                <Icon
+                                    size={27}
+                                    strokeWidth={1.5}
+                                    aria-hidden="true"
+                                />
+                                <h3>{name}</h3>
+                                <p>{text}</p>
+                            </article>
+                        ))}
+                    </div>
+                    <Link href="/skills" className="text-link">
+                        Explore my toolkit{" "}
+                        <ArrowUpRight size={17} aria-hidden="true" />
+                    </Link>
+                </div>
+            </section>
+            <section
+                className="container section home-about"
+                aria-labelledby="about-title"
+            >
+                <p className="eyebrow">
+                    <span className="section-index">03 /</span> THE PERSON
+                    BEHIND THE CODE
+                </p>
+                <div>
+                    <h2 id="about-title">
+                        Engineer by profession.
+                        <br />
+                        <span className="serif">Explorer at heart.</span>
+                    </h2>
+                    <p>
+                        Since 2018, I&apos;ve followed my curiosity through
+                        code, cameras, and guitar strings. Today, I work as a
+                        DevSecOps Engineer at NCS Singapore, and keep that same
+                        spirit of exploration in everything I build.
+                    </p>
+                    <Link href="/about" className="text-link">
+                        More of my story{" "}
+                        <ArrowUpRight size={17} aria-hidden="true" />
+                    </Link>
+                </div>
+            </section>
         </>
     );
 }
