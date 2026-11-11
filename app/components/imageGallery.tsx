@@ -3,17 +3,17 @@ import Image from "next/image";
 export default function ImageGallery() {
     return (
         <div className="photo-gallery">
-            <figure>
+            <figure className="photography-photo">
                 <div>
                     <Image
-                        src="/images/optimized/photography.webp"
-                        alt="Keith with a camera at Coney Island"
+                        src="/images/optimized/photography-hong-kong.webp"
+                        alt="Keith holding a camera on a street in Hong Kong"
                         fill
                         sizes="(max-width: 650px) 90vw, 45vw"
                     />
                 </div>
                 <figcaption>
-                    Coney Island, Singapore <span>01 / PHOTOGRAPHY</span>
+                    Hong Kong <span>01 / PHOTOGRAPHY</span>
                 </figcaption>
             </figure>
             <figure>

@@ -1044,6 +1044,7 @@ main:focus {
 }
 .about-portrait img {
     object-fit: cover;
+    object-position: center 65%;
 }
 .about-portrait figcaption {
     display: flex;
@@ -1087,6 +1088,9 @@ main:focus {
 .photo-gallery img {
     object-fit: cover;
     object-position: center 40%;
+}
+.photo-gallery .photography-photo img {
+    object-position: center 88%;
 }
 .photo-gallery figure:nth-child(2) img {
     object-position: center 37%;
@@ -1844,7 +1848,7 @@ main:focus {
         aspect-ratio: 1;
     }
     .about-portrait img {
-        object-position: center 60%;
+        object-position: center 65%;
     }
     .prose > p:not(.eyebrow) {
         font-size: 14px;

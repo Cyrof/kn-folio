@@ -35,16 +35,15 @@ export default function About() {
                 <figure className="about-portrait">
                     <div>
                         <Image
-                            src="/images/optimized/portrait.webp"
-                            alt="Keith at the Singapore Botanic Gardens"
+                            src="/images/optimized/about-vietnam.webp"
+                            alt="Keith wearing a cap and backpack while exploring Hoi An, Vietnam"
                             fill
                             priority
                             sizes="(max-width: 700px) 90vw, 40vw"
                         />
                     </div>
                     <figcaption>
-                        <MapPin size={14} aria-hidden="true" /> Botanic Gardens,
-                        Singapore
+                        <MapPin size={14} aria-hidden="true" /> Hoi An, Vietnam
                     </figcaption>
                 </figure>
                 <div className="prose">
