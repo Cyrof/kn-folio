@@ -14,6 +14,8 @@ RUN npm ci
 COPY . .
 
 # build nextjs application 
+ARG SITE_URL=https://knfolio.cyrostack.dev
+ENV SITE_URL=$SITE_URL
 RUN npm run build
 
 # run the app 

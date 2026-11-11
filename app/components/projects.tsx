@@ -1,70 +1,161 @@
-// projects cards 
-'use client'
-import { useEffect, useState } from "react"
-import { Data } from "../interfaces/skills_project"
-import { chunkArray } from "../utils/chunkArray"
-import { Box, Button, Center, Group, Image, Stack, Text } from "@mantine/core"
+﻿import {
+    ArrowUpRight,
+    Circle,
+    Crosshair,
+    Server,
+    Terminal,
+} from "lucide-react";
+import Image from "next/image";
 
-const Projects = () => {
-    const [data, setData] = useState<Data>({ skills: [], projects: [] });
-    
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await fetch('/api/data');
-                if (!res.ok) throw new Error('Failed to fetch data');
-                const data = await res.json();
-                setData(data);
-            } catch (err) {
-                console.error(`Error fetching data ${err}`);
-            }
-        }
+import { projects } from "../data/portfolio";
 
-        fetchData();
-    }, []);
-
-    const projectChunk = chunkArray(data.projects, 3);
-
-    return(
-        <Stack className="w-full h-auto animate-staggered-text-down [--slidein-delay:200ms] opacity-0 [animation-timeline:view()]" align="center" gap="lg">
-            {projectChunk.map((chunk, chunkIndex) => (
-                <Group key={chunkIndex} className="w-full" justify="center" gap="xl">
-                    {chunk.map((project, index) => (
-                        <Box
-                            key={index}
-                            className="group w-56 h-56 m-0 relative transition-all duration-500 ease-in-out hover:h-[19rem] hover:w-[17rem]"
-                        >
-                            {/* wrapper */}
-                            <Stack className="bg-[#3d3131] m-0 h-full w-full rounded-xl shadow-xl relative" justify="center" align="center" gap={3}>
-                                <Stack className="w-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:-translate-y-10" gap={3} align="center">
-                                    {/* square image */}
-                                    <Center className="w-24 h-24 border-4 border-gray-900 shadow-lg bg-gray-700 rounded-xl">
-                                        <Image 
-                                            src={project.url}
-                                            alt="img"
-                                            className="w-20 h-auto"
-                                        />
-                                    </Center>
-                                    <Text className="w-4/5 h-10 text-center font-sans font-bold text-lg text-gray-200">{project.name}</Text>
-                                </Stack>
-                                <Stack className="absolute mb-2 font-sans font-medium bottom-0 opacity-0 text-center group-hover:animate-staggered-text-up group-hover:[--slidein-delay:100ms" align="center" gap={3}>
-                                    <Text className="w-4/5 text-gray-200">{project.description}</Text>
-                                    <Button
-                                        component="a"
-                                        href={project.github}
-                                        target="_blank"
-                                        className="bg-red-500 rounded-xl text-gray-200 p-1 hover:bg-red-400 hover:text-gray-900 transition-colors duration-300"
-                                    >
-                                        View Repo
-                                    </Button>
-                                </Stack>
-                            </Stack>
-                        </Box>
+function ProjectVisual({ kind, image }: { kind: string; image: string }) {
+    if (kind === "image")
+        return (
+            <div className="project-logo-art" aria-hidden="true">
+                <Image
+                    src={image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 650px) 76vw, (max-width: 1050px) 34vw, 400px"
+                />
+            </div>
+        );
+    if (kind === "portfolio")
+        return (
+            <div className="mini-browser" aria-hidden="true">
+                <div className="browser-bar">
+                    <span />
+                    <span />
+                    <span />
+                    <b>keith neo / portfolio</b>
+                </div>
+                <div className="browser-content">
+                    <span className="mini-label">
+                        ENGINEER. BUILDER. EXPLORER.
+                    </span>
+                    <strong>
+                        Ideas into
+                        <br />
+                        <i>impact.</i>
+                    </strong>
+                    <div className="mini-button">Explore my work ↗</div>
+                    <div className="mini-code">
+                        <Terminal size={25} />
+                        <span>const curiosity = true;</span>
+                    </div>
+                </div>
+            </div>
+        );
+    if (kind === "cluster")
+        return (
+            <div className="cluster-art" aria-hidden="true">
+                <div className="cluster-label">CYROSTACK / HOME LAB</div>
+                <div className="server-stack">
+                    {[0, 1, 2, 3].map((item) => (
+                        <div className="server-unit" key={item}>
+                            <Server size={24} />
+                            <span>pi-node-0{item + 1}</span>
+                            <i />
+                            <i />
+                        </div>
                     ))}
-                </Group>
-            ))}
-        </Stack>
-    )
+                </div>
+                <div className="cluster-caption">
+                    <span className="status-dot" /> 4 nodes. One ecosystem.
+                </div>
+            </div>
+        );
+    if (kind === "sentinel")
+        return (
+            <div className="sentinel-art" aria-hidden="true">
+                <Crosshair size={115} strokeWidth={1} />
+                <span className="detection-label">
+                    SENTINEL / OBJECT DETECTION
+                </span>
+                <div className="detection-box">
+                    hazard detection <span>⌁</span>
+                </div>
+            </div>
+        );
+    return (
+        <div className="cycle-art" aria-hidden="true">
+            <Circle size={140} strokeWidth={1} />
+            <Circle size={100} strokeWidth={1} />
+            <span>
+                ChronoCycle<span>Make time for what matters.</span>
+            </span>
+        </div>
+    );
 }
 
-export default Projects;
+export default function Projects({
+    items = projects,
+}: {
+    items?: typeof projects;
+}) {
+    return (
+        <div className="project-grid">
+            {items.map((project) => (
+                <article className="project-card" key={project.github}>
+                    <a
+                        className="project-preview"
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Explore ${project.name} on GitHub (opens in a new tab)`}
+                        data-tone={project.tone}
+                    >
+                        <span className="project-number">
+                            {project.number} / PROJECT
+                        </span>
+                        <ProjectVisual
+                            kind={project.visual}
+                            image={project.image}
+                        />
+                        <span className="project-preview-arrow">
+                            <ArrowUpRight size={20} />
+                        </span>
+                    </a>
+                    <div className="project-info">
+                        <p className="project-category">{project.category}</p>
+                        <div className="project-heading">
+                            <Image
+                                src={project.image}
+                                alt=""
+                                width={36}
+                                height={36}
+                                className="project-icon"
+                            />
+                            <h3>
+                                <a
+                                    href={project.github}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    {project.name}
+                                    <span className="sr-only">
+                                        {" "}
+                                        on GitHub (opens in a new tab)
+                                    </span>
+                                </a>
+                            </h3>
+                            <ArrowUpRight size={20} aria-hidden="true" />
+                        </div>
+                        <p>
+                            {project.description} {project.note}
+                        </p>
+                        <ul
+                            className="tags"
+                            aria-label={`${project.name} technologies and topics`}
+                        >
+                            {project.tags.map((tag) => (
+                                <li key={tag}>{tag}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </article>
+            ))}
+        </div>
+    );
+}

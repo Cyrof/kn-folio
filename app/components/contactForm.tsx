@@ -1,140 +1,146 @@
-// contact form component 
-'use client';
+﻿"use client";
 
-import { Box, Button, Center, Group, Stack, Text, TextInput, Textarea } from "@mantine/core";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { ArrowUpRight, CheckCircle2, LoaderCircle } from "lucide-react";
+import { useRef, useState, type FormEvent } from "react";
 
-interface FormData {
-    name: string;
-    email: string;
-    message: string;
-}
+const initialFormData = { name: "", email: "", message: "" };
 
-const initialFormData: FormData = {
-    name: '',
-    email: '',
-    message: '',
-}
+export default function ContactForm() {
+    const [formData, setFormData] = useState(initialFormData);
+    const [status, setStatus] = useState<
+        "idle" | "sending" | "success" | "error"
+    >("idle");
+    const submitting = useRef(false);
 
-const ContactForm = () => {
-    const [formData, setFormData] = useState<FormData>(initialFormData);
-    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-    const [successMessage, setSuccessMessage] = useState<string | null>(null);
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target; 
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    };
-
-    const handleSubmit = async (e: FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        setSuccessMessage(null);
-        setErrorMessage(null);
-
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        if (submitting.current) return;
+        submitting.current = true;
+        setStatus("sending");
         try {
-            const res = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
-            if (res.ok) {
-                setSuccessMessage('Message sent successfully!');
-                setFormData(initialFormData);
-            } else {
-                throw new Error('Failed to send message');
-            }
-        } catch (error) {
-            console.error(error);
-            setErrorMessage('Failed to send message. Please try again.');
+            if (!response.ok) throw new Error("Message could not be sent");
+            setStatus("success");
+            setFormData(initialFormData);
+        } catch {
+            setStatus("error");
         } finally {
-            setIsSubmitting(false);
+            submitting.current = false;
         }
-    };
+    }
 
     return (
-        <Stack className="w-[70%] bg-[#3d3131] rounded-3xl shadow-lg shadow-red-500 animate-appear opacity-0">
-            <Box className="w-full pl-10 pt-6">
-                <Text className="w-11/12 font-sans text-gray-100 text-xl font-medium">I&apos;m excited to hear from you! Share your thoughts, ideas, or questions, and I&apos;ll get back to you soon.</Text>
-            </Box>
-            <form
-                onSubmit={handleSubmit}
-                className="w-auto h-auto p-5"
+        <form
+            className="contact-form"
+            onSubmit={handleSubmit}
+            aria-labelledby="form-title"
+            aria-busy={status === "sending"}
+        >
+            <h2 id="form-title">Leave a little note.</h2>
+            <p className="form-intro" id="form-instructions">
+                All fields are required. I&apos;ll reply to the email you
+                provide.
+            </p>
+            <fieldset
+                disabled={status === "sending"}
+                aria-describedby="form-instructions"
             >
-                <Center className="w-full mb-4 font-heading font-semibold">
-                    {successMessage && <Text className="text-green-500 text-lg">{successMessage}</Text>}
-                    {errorMessage && <Text className="text-red-500 text-lg">{errorMessage}</Text>}
-                </Center>
-
-                <Stack>
-                    {/* name input */}
-                    <Group className="w-full" wrap="nowrap" gap={0}>
-                        <Group gap={1} className="w-1/3" align="center">
-                            <Text span className="text-gray-200 text-lg font-sans font-semibold ml-5">Name</Text>
-                            <Text span className="text-red-600">*</Text>
-                        </Group>
-                        <TextInput 
+                <div className="form-row">
+                    <div className="form-field">
+                        <label htmlFor="name">Your name</label>
+                        <input
                             id="name"
                             name="name"
-                            placeholder="Your Name"
+                            autoComplete="name"
+                            placeholder="What should I call you?"
                             value={formData.name}
-                            onChange={(e) => handleChange(e)}
+                            onChange={(event) =>
+                                setFormData({
+                                    ...formData,
+                                    name: event.target.value,
+                                })
+                            }
                             required
-                            className="w-2/3 px-2 py-1 focus:outline-none"
                         />
-                    </Group>
-
-                    {/* email input */}
-                    <Group className="w-full" wrap="nowrap" gap={0}>
-                        <Group gap={1} className="w-1/3" align="center">
-                            <Text span className="text-gray-200 text-lg font-sans font-semibold ml-5">Email</Text>
-                            <Text span className="text-red-600">*</Text>
-                        </Group>
-                        <TextInput 
+                    </div>
+                    <div className="form-field">
+                        <label htmlFor="email">Email address</label>
+                        <input
                             id="email"
-                            type="email"
                             name="email"
-                            placeholder="Jane@example.com"
+                            type="email"
+                            autoComplete="email"
+                            placeholder="you@example.com"
                             value={formData.email}
-                            onChange={(e) => handleChange(e)}
+                            onChange={(event) =>
+                                setFormData({
+                                    ...formData,
+                                    email: event.target.value,
+                                })
+                            }
                             required
-                            className="w-2/3 px-2 py-1 focus:outline-none"
                         />
-                    </Group>
-
-                    {/* message input */}
-                    <Group className="w-full" wrap="nowrap" gap={0} align="flex-start">
-                        <Group gap={1} className="w-1/3" align="center">
-                            <Text span className="text-gray-200 text-lg font-sans font-semibold ml-5">Message</Text>
-                            <Text span className="text-red-600">*</Text>
-                        </Group>
-                        <Textarea 
-                            id="message"
-                            name="message"
-                            placeholder="Have a project idea or a question? Let me know!"
-                            value={formData.message}
-                            onChange={(e) => handleChange(e)}
-                            required
-                            rows={5}
-                            className="w-2/3 px-2 py-1 focus:outline-none"
-                        />
-                    </Group>
-
-                    {/* submit button */}
-                    <Group className="w-full px-2" justify="flex-end">
-                        <Button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="py-2 px-4 bg-red-400 text-base font-semibold rounded-md hover:bg-red-500 transition duration-200"
-                        >
-                            {isSubmitting ? 'Sending...' : 'Send Message'}
-                        </Button>
-                    </Group>
-                </Stack>
-            </form>
-        </Stack>
-    )
+                    </div>
+                </div>
+                <div className="form-field">
+                    <label htmlFor="message">What&apos;s on your mind?</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell me about your idea, project, or question..."
+                        rows={6}
+                        value={formData.message}
+                        onChange={(event) =>
+                            setFormData({
+                                ...formData,
+                                message: event.target.value,
+                            })
+                        }
+                        required
+                    />
+                </div>
+                <button type="submit" className="button button-primary">
+                    {status === "sending" ? (
+                        <>
+                            <LoaderCircle
+                                className="spinner"
+                                size={18}
+                                aria-hidden="true"
+                            />{" "}
+                            Sending message…
+                        </>
+                    ) : (
+                        <>
+                            Send message{" "}
+                            <ArrowUpRight size={18} aria-hidden="true" />
+                        </>
+                    )}
+                </button>
+            </fieldset>
+            <div
+                className="form-status"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+            >
+                {status === "success" && (
+                    <p className="success-message">
+                        <CheckCircle2 size={19} aria-hidden="true" /> Thanks for
+                        reaching out! Your message has been sent.
+                    </p>
+                )}
+            </div>
+            {status === "error" && (
+                <p className="error-message" role="alert">
+                    Your message couldn&apos;t be sent. Your note is still here,
+                    so you can try again or{" "}
+                    <a href="mailto:keithneo00@gmail.com">email me directly</a>.
+                </p>
+            )}
+        </form>
+    );
 }
-
-export default ContactForm;
