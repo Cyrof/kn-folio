@@ -7,6 +7,8 @@ commit history.
 
 ## [Unreleased]
 
+## [v0.2.0] - 2026-11-11
+
 ### Added
 
 - Home-page experience section covering AI engineering, DevSecOps, and infrastructure work.
