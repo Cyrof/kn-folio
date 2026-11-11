@@ -61,7 +61,7 @@ npm start
 By default it will listen on port 3000&mdash;visit `http://localhost:3000` to verify.
 
 ## Docker Deployment 
-A Docker image is auto-built & pushed to Docker Hub on every merge  to `stable`. To run via Docker:
+A Docker image is published to Docker Hub when a release pull request is merged into `stable`. To run via Docker:
 ```bash
 docker pull cyrof/kn-folio:latest
 docker run -d \
@@ -74,9 +74,7 @@ docker run -d \
 For full Docker-specific instructions, see the [Docker Hub README](https://hub.docker.com/repository/docker/cyrof/kn-folio/general).
 
 ## CI/CD
-GitHub Actions are used to:
-1. **Bump & tag releases** on merges into `stable`
-2. **Build & push** Docker images for both `vX.Y.Z` and `latest` tags.
+GitHub Actions are used to lint and build changes on pull requests to `master`. Start a release with the `prepare-release` workflow; it creates a versioned release branch and pull request to `stable`. After the changelog is reviewed and that pull request is merged, the `release` workflow creates the GitHub release and publishes Docker images tagged with the version and `latest`.
 Configuration lives in `.github/workflows/`.
 
 ## License
