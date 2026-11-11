@@ -1,220 +1,145 @@
-// About page
-import { Box, Group, Image, Stack, Text } from "@mantine/core";
+import { ArrowUpRight, MapPin } from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+
 import ImageGallery from "../components/imageGallery";
-import Footer from "../components/footer";
-import NavBar from "../components/navbar";
-import { SpanText } from "../components/customComponents/spanText";
+
+export const metadata: Metadata = {
+    alternates: { canonical: "/about" },
+    title: "About",
+    description:
+        "Meet Keith Neo: AI System Engineer with experience in AI infrastructure, DevSecOps, and cybersecurity. Photographer and guitarist based in Singapore.",
+};
 
 export default function About() {
     return (
-        <>
-            <NavBar />
-            <Stack className="my-8" gap="xl">
-                {/* first part (introduction) */}
-                <Group wrap="nowrap" gap={0} align="flex-start">
-                    <Stack className="p-10 text-gray-200 w-2/3 h-full" gap="xl">
-                        {/* header */}
-                        <Text className="text-5xl font-heading mt-5 animate-staggered-text-down opacity-0 [--slidein-delay:300ms]">
-                            A Little About Me
-                        </Text>
-                        {/* paragraph */}
-                        <Stack gap="lg">
-                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:500ms]">
-                                <SpanText>I&apos;m a </SpanText>
-                                <SpanText>
-                                    dedicated AI and Cybersecurity
-                                    enthusiast{" "}
-                                </SpanText>
-                                <SpanText>
-                                    with a passion for building innovative
-                                    solutions and tackling complex challenges.
-                                </SpanText>
-                            </Box>
-                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:700ms]">
-                                <SpanText span>Since </SpanText>
-                                <SpanText className="text-red-400" span>
-                                    2018{" "}
-                                </SpanText>
-                                <SpanText span>
-                                    I&apos;ve been exploring the world of
-                                    technology through{" "}
-                                </SpanText>
-                                <SpanText className="text-red-400" span>
-                                    self-driven projects{" "}
-                                </SpanText>
-                                <SpanText span>from crafting </SpanText>
-                                <SpanText className="text-red-400" span>
-                                    command-line tools{" "}
-                                </SpanText>
-                                <SpanText span>to orchestrating </SpanText>
-                                <SpanText className="text-red-400" span>
-                                    Kubernetes deployments{" "}
-                                </SpanText>
-                                <SpanText span>on my </SpanText>
-                                <SpanText className="text-red-400" span>
-                                    self-built Raspberry Pi cluster
-                                </SpanText>
-                                <SpanText span>
-                                    . My experience also spans{" "}
-                                </SpanText>
-                                <SpanText className="text-red-400" span>
-                                    machine learning
-                                </SpanText>
-                                <SpanText span>, </SpanText>
-                                <SpanText className="text-red-400" span>
-                                    cybersecurity tools
-                                </SpanText>
-                                <SpanText span>, and </SpanText>
-                                <SpanText className="text-red-400" span>
-                                    DevSecOps engineering
-                                </SpanText>
-                                <SpanText span>
-                                    , reflecting my versatile approach to tech.
-                                </SpanText>
-                            </Box>
-                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:900ms]">
-                                <SpanText>
-                                    Currently, I&apos;m working as a{" "}
-                                </SpanText>
-                                <SpanText className="text-red-400">
-                                    DevSecOps Engineer at NCS Singapore
-                                </SpanText>
-                                <SpanText>
-                                    , where I bridge the gap between
-                                    development, security, and operations.
-                                    Beyond my professional role, I continue
-                                    building{" "}
-                                </SpanText>
-                                <SpanText className="text-red-400">
-                                    full-stack projects
-                                </SpanText>
-                                <SpanText> like </SpanText>
-                                <SpanText className="text-red-400">
-                                    GopherGate
-                                </SpanText>
-                                <SpanText> — a VPN solution using </SpanText>
-                                <SpanText className="text-red-400">
-                                    WireGuard, Golang
-                                </SpanText>
-                                <SpanText>
-                                    , with a UI, CLI, and robust backend. My
-                                    frontend and full-stack development skills
-                                    shine through in projects like this
-                                    very{" "}
-                                </SpanText>
-                                <SpanText className="text-red-400">
-                                    digital portfolio
-                                </SpanText>
-                                <SpanText>
-                                    , crafted entirely from scratch using{" "}
-                                </SpanText>
-                                <SpanText className="text-red-400">
-                                    Next.js{" "}
-                                </SpanText>
-                                <SpanText>
-                                    for scalability and performance.
-                                </SpanText>
-                            </Box>
-                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:1100ms]">
-                                <SpanText>Since graduating in </SpanText>
-                                <SpanText className="text-red-400">
-                                    April 2025
-                                </SpanText>
-                                <SpanText>
-                                    , I&apos;ve transitioned into the
-                                    professional world, now contributing to{" "}
-                                </SpanText>
-                                <SpanText className="text-red-400">
-                                    secure and scalable systems
-                                </SpanText>
-                                <SpanText>
-                                    {" "}
-                                    at NCS while continuing to explore the
-                                    frontiers of{" "}
-                                </SpanText>
-                                <SpanText className="text-red-400">
-                                    AI and cybersecurity
-                                </SpanText>
-                                <SpanText>
-                                    {" "}
-                                    through hands-on projects and innovation.
-                                </SpanText>
-                            </Box>
-                        </Stack>
-                    </Stack>
-                    <Box className="text-white w-1/3 p-5 group animate-appear opacity-0">
-                        <Box className="relative w-auto h-auto">
-                            <Image
-                                src="images/about/about_me.png"
-                                alt="about me"
-                                className="rounded-3xl"
-                            />
-                            <Box className="absolute opacity-0 bottom-0 right-0 bg-gray-800 w-3/12 rounded-lg mr-2 text-center bg-opacity-80 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:-translate-y-2 group-hover:pointer-events-auto">
-                                <Text className="text-sm font-medium text-gray-200">
-                                    Botanic Garden, Singapore
-                                </Text>
-                            </Box>
-                        </Box>
-                    </Box>
-                </Group>
-                {/* second part (outside of work) */}
-                <Group wrap="nowrap" gap={0} align="top">
-                    <Box className="text-white w-2/5 flex justify-center items-center animate-right-slideIn opacity-0 [animation-timeline:view()] [animation-range-start:5%] [animation-range-end:30%]">
-                        <ImageGallery />
-                    </Box>
-                    <Stack className="p-10 text-gray-200 w-3/5" gap="xl">
-                        <Text className="text-5xl font-heading animate-staggered-text-down opacity-0 [--slidein-delay:300ms] [animation-timeline:view()] [animation-range-start:5%] [animation-range-end:20%]">
-                            When I&apos;m Not Coding...
-                        </Text>
-                        <Stack gap="lg">
-                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:500ms] [animation-timeline:view()] [animation-range-start:5%] [animation-range-end:25%]">
-                                <SpanText>
-                                    Beyond the world of code and AI models,
-                                    I&apos;m someone who finds joy in{" "}
-                                </SpanText>
-                                <SpanText className="text-red-400">
-                                    capturing the moments through photography
-                                </SpanText>
-                                <SpanText>
-                                    . Whether it&apos;s exploring new
-                                    landscapes, documenting life&apos;s fleeting
-                                    moments, or experimenting with creative
-                                    compositions, photography serves as my
-                                    creative outlet.
-                                </SpanText>
-                            </Box>
-                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:700ms] [animation-timeline:view()] [animation-range-start:5%] [animation-range-end:30%]">
-                                <SpanText>
-                                    On the more melodic side, I&apos;ve been
-                                    playing the{" "}
-                                </SpanText>
-                                <SpanText className="text-red-400">
-                                    guitar for over 12 years and counting
-                                </SpanText>
-                                <SpanText>
-                                    . Music isn&apos;t just a hobby for me.
-                                    It&apos;s a way to unwind, express myself,
-                                    and sometimes even spark fresh ideas for my
-                                    tech projects.
-                                </SpanText>
-                            </Box>
-                            <Box className="animate-staggered-text-down opacity-0 [--slidein-delay:900ms] [animation-timeline:view()] [animation-range-start:5%] [animation-range-end:35%]">
-                                <SpanText>Balancing </SpanText>
-                                <SpanText className="text-red-400">
-                                    technology, creativity, and music{" "}
-                                </SpanText>
-                                <SpanText>
-                                    helps me stay inspired, curious, and ready
-                                    to tackle new challenges. Whether
-                                    that&apos;s behind a camera lens, strumming
-                                    a guitar or writing lines of code.
-                                </SpanText>
-                            </Box>
-                        </Stack>
-                    </Stack>
-                </Group>
-            </Stack>
-            <Footer />
-        </>
+        <div className="container">
+            <header className="page-heading">
+                <p className="eyebrow">A LITTLE ABOUT ME</p>
+                <h1>
+                    Driven by curiosity.
+                    <br />
+                    <span className="serif">Grounded in craft.</span>
+                </h1>
+                <p>
+                    There&apos;s a person behind every line of code.
+                    <br />
+                    Here&apos;s a little of my story.
+                </p>
+            </header>
+            <section
+                className="about-intro section-bottom"
+                aria-labelledby="story-title"
+            >
+                <figure className="about-portrait">
+                    <div>
+                        <Image
+                            src="/images/optimized/about-vietnam.webp"
+                            alt="Keith wearing a cap and backpack while exploring Hoi An, Vietnam"
+                            fill
+                            priority
+                            sizes="(max-width: 700px) 90vw, 40vw"
+                        />
+                    </div>
+                    <figcaption>
+                        <MapPin size={14} aria-hidden="true" /> Hoi An, Vietnam
+                    </figcaption>
+                </figure>
+                <div className="prose">
+                    <p className="eyebrow">THE STORY SO FAR</p>
+                    <h2 id="story-title">
+                        An engineer&apos;s mind.
+                        <br />A{" "}
+                        <span className="serif">maker&apos;s spirit.</span>
+                    </h2>
+                    <p>
+                        I&apos;m a dedicated AI and cybersecurity enthusiast
+                        with a passion for building innovative solutions and
+                        tackling complex challenges.
+                    </p>
+                    <p>
+                        Since <strong>2018</strong>, I&apos;ve been exploring
+                        technology through self-driven projects, from crafting
+                        command-line tools to orchestrating Kubernetes
+                        deployments on my self-built Raspberry Pi cluster. My
+                        experience also spans machine learning, cybersecurity
+                        tools, and DevSecOps engineering.
+                    </p>
+                    <p>
+                        Today, I work as an{" "}
+                        <strong>AI System Engineer at NCS Singapore</strong>, in
+                        the Video Intelligence department since August 2025,
+                        bridging development, security, and operations. Since
+                        graduating in April 2025, I&apos;ve been contributing to
+                        secure and scalable systems while continuing to explore
+                        AI and cybersecurity through hands-on projects.
+                    </p>
+                    <p>
+                        Outside my professional role, I build full-stack
+                        projects like <strong>GopherGate</strong>, a VPN
+                        solution using WireGuard and Golang with a UI, CLI, and
+                        backend. This digital portfolio is another project,
+                        crafted from scratch using Next.js with scalability and
+                        performance in mind.
+                    </p>
+                    <Link href="/myWork" className="text-link">
+                        See what I&apos;ve been building{" "}
+                        <ArrowUpRight size={17} aria-hidden="true" />
+                    </Link>
+                    <Link
+                        href="/#experience"
+                        className="text-link about-experience-link"
+                    >
+                        Explore my professional experience{" "}
+                        <ArrowUpRight size={17} aria-hidden="true" />
+                    </Link>
+                </div>
+            </section>
+            <section
+                className="outside-work section"
+                aria-labelledby="outside-title"
+            >
+                <div className="section-heading">
+                    <div>
+                        <p className="eyebrow">BEYOND THE TERMINAL</p>
+                        <h2 id="outside-title">
+                            A different kind
+                            <br />
+                            of <span className="serif">creative outlet.</span>
+                        </h2>
+                    </div>
+                    <p className="section-description">
+                        Technology, creativity, and music keep me inspired,
+                        curious, and ready for the next challenge.
+                    </p>
+                </div>
+                <ImageGallery />
+                <div className="hobby-copy">
+                    <article>
+                        <span className="eyebrow">01 / THROUGH THE LENS</span>
+                        <h3>Finding a new perspective.</h3>
+                        <p>
+                            Photography is my creative outlet: exploring new
+                            landscapes, documenting fleeting moments, and
+                            experimenting with compositions. There&apos;s always
+                            something worth noticing.
+                        </p>
+                    </article>
+                    <article>
+                        <span className="eyebrow">
+                            02 / AWAY FROM THE KEYBOARD
+                        </span>
+                        <h3>Six strings. Endless ideas.</h3>
+                        <p>
+                            I&apos;ve been playing guitar for over 12 years and
+                            counting. Music is a way to unwind, express myself,
+                            and sometimes spark fresh ideas for my tech
+                            projects.
+                        </p>
+                    </article>
+                </div>
+            </section>
+        </div>
     );
 }

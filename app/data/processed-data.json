@@ -120,6 +120,18 @@
             "description": "A complex recurring task application.",
             "url": "images/projects/chronocycle.png",
             "github": "https://github.com/dixslyf/chrono-cycle"
+        },
+        {
+            "name": "GopherGate",
+            "description": "A Go-based WireGuard management control plane with a web interface, CLI, and automated peer lifecycle management.",
+            "url": "images/projects/gophergate.png",
+            "github": "https://github.com/Cyrof/GopherGate"
+        },
+        {
+            "name": "OurNeZt",
+            "description": "A household finance and housing planning application with shared family dashboards, affordability comparisons, and housing checklists.",
+            "url": "images/projects/ournezt.webp",
+            "github": "https://github.com/OurNeZt"
         }
     ]
 }

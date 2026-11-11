@@ -1,43 +1,34 @@
-import { Box, Text, Image } from "@mantine/core";
+import Image from "next/image";
 
-const ImageGallery = () => {
+export default function ImageGallery() {
     return (
-        <Box className="relative w-[95%] h-full overflow-hidden rounded-3xl mx-auto">
-            <Box className="flex items-center gap-2 h-[400px] w-full">
-                {/* Left image - expands on hover */}
-                <Box className="relative group flex-grow transition-all w-56 h-[400px] duration-500 hover:w-full overflow-hidden rounded-lg">
+        <div className="photo-gallery">
+            <figure className="photography-photo">
+                <div>
                     <Image
-                        src="/images/about/cam-me.JPG"
-                        alt="Me at Coney Island"
-                        className="h-full w-full object-cover object-center"
-                        fit="cover"
+                        src="/images/optimized/photography-hong-kong.webp"
+                        alt="Keith holding a camera on a street in Hong Kong"
+                        fill
+                        sizes="(max-width: 650px) 90vw, 45vw"
                     />
-                    {/* hover text */}
-                    <Box className="absolute opacity-0 bottom-0 left-0 p-2 bg-gray-800/80 rounded-lg ml-2 text-center bg-opacity-80 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:-translate-y-2 group-hover:pointer-events-auto">
-                        <Text className="text-sm font-medium">
-                            Coney Island, Singapore
-                        </Text>
-                    </Box>
-                </Box>
-
-                {/* Right image - expands on hover */}
-                <Box className="relative group flex-grow transition-all w-56 h-[400px] duration-500 hover:w-full overflow-hidden rounded-lg">
+                </div>
+                <figcaption>
+                    Hong Kong <span>01 / PHOTOGRAPHY</span>
+                </figcaption>
+            </figure>
+            <figure>
+                <div>
                     <Image
-                        src="/images/about/guitar-me.JPG"
-                        alt="Guitar me"
-                        className="h-full w-full object-cover object-center"
-                        fit="cover"
+                        src="/images/optimized/guitar.webp"
+                        alt="Keith playing guitar at Bellewaters"
+                        fill
+                        sizes="(max-width: 650px) 90vw, 45vw"
                     />
-                    {/* hover text */}
-                    <Box className="absolute opacity-0 bottom-0 right-0 p-2 bg-gray-800/80 rounded-lg mr-2 text-center bg-opacity-80 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:-translate-y-2 group-hover:pointer-events-auto">
-                        <Text className="text-sm font-medium">
-                            Bellewaters, Singapore
-                        </Text>
-                    </Box>
-                </Box>
-            </Box>
-        </Box>
+                </div>
+                <figcaption>
+                    Bellewaters, Singapore <span>02 / MUSIC</span>
+                </figcaption>
+            </figure>
+        </div>
     );
-};
-
-export default ImageGallery;
+}
