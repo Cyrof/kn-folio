@@ -7,6 +7,8 @@ commit history.
 
 ## [Unreleased]
 
+## [v0.2.1] - 2026-11-12
+
 ### Added
 
 - Soft page entrance transitions, a sliding active navigation marker, and a mobile menu reveal that respect reduced-motion preferences.
