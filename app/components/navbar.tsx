@@ -19,6 +19,10 @@ export default function NavBar() {
     const [open, setOpen] = useState(false);
     const [experienceInView, setExperienceInView] = useState(false);
     const toggle = useRef<HTMLButtonElement>(null);
+    const navigation = useRef<HTMLDivElement>(null);
+    const [indicator, setIndicator] = useState<{ x: number; y: number } | null>(
+        null,
+    );
     const experienceActive = pathname === "/" && experienceInView;
 
     function currentLocation(href: string): "page" | "location" | undefined {
@@ -68,6 +72,42 @@ export default function NavBar() {
         };
     }, [pathname]);
 
+    useEffect(() => {
+        const container = navigation.current;
+        if (!container) return;
+
+        function updateIndicator() {
+            const active =
+                container?.querySelector<HTMLAnchorElement>("a[aria-current]");
+            if (!active || !active.getClientRects().length) {
+                setIndicator(null);
+                return;
+            }
+
+            const mobile = window.matchMedia("(max-width: 650px)").matches;
+            setIndicator({
+                x:
+                    active.offsetLeft +
+                    (mobile
+                        ? active.offsetWidth - 20
+                        : active.offsetWidth / 2 - 2),
+                y:
+                    active.offsetTop +
+                    (mobile
+                        ? active.offsetHeight / 2 - 2
+                        : active.offsetHeight - 5),
+            });
+        }
+
+        updateIndicator();
+        const observer = new ResizeObserver(updateIndicator);
+        observer.observe(container);
+        container
+            .querySelectorAll("a")
+            .forEach((link) => observer.observe(link));
+        return () => observer.disconnect();
+    }, [pathname, experienceActive, open]);
+
     return (
         <header className="site-header">
             <nav
@@ -104,6 +144,7 @@ export default function NavBar() {
                     )}
                 </button>
                 <div
+                    ref={navigation}
                     id="navigation-links"
                     className={`nav-links${open ? " is-open" : ""}`}
                 >
@@ -117,6 +158,16 @@ export default function NavBar() {
                             {link.label}
                         </Link>
                     ))}
+                    <span
+                        className="nav-indicator"
+                        aria-hidden="true"
+                        style={{
+                            opacity: indicator ? 1 : 0,
+                            transform: indicator
+                                ? `translate3d(${indicator.x}px, ${indicator.y}px, 0)`
+                                : undefined,
+                        }}
+                    />
                 </div>
                 <Link href="/contact" className="nav-cta">
                     Let&apos;s talk{" "}

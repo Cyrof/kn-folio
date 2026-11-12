@@ -104,6 +104,29 @@ p {
 main:focus {
     outline: none;
 }
+.page-transition {
+    animation: page-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes page-enter {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes menu-enter {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .container {
     width: min(1184px, calc(100% - 112px));
     margin-inline: auto;
@@ -229,6 +252,7 @@ main:focus {
     color: var(--accent-dark);
 }
 .nav-links {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 31px;
@@ -241,20 +265,26 @@ main:focus {
     position: relative;
     color: var(--muted);
     font-weight: 500;
+    transition:
+        color 180ms ease,
+        background-color 180ms ease;
 }
 .nav-links a:hover,
 .nav-links a[aria-current] {
     color: var(--ink);
 }
-.nav-links a[aria-current]::after {
-    content: "";
+.nav-indicator {
     position: absolute;
     width: 4px;
     height: 4px;
     background: var(--accent-dark);
     border-radius: 50%;
-    bottom: 1px;
-    left: calc(50% - 2px);
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition:
+        transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 180ms ease;
 }
 .nav-cta {
     display: flex;
@@ -1579,6 +1609,7 @@ main:focus {
         border-bottom: 1px solid var(--line);
         gap: 3px;
         box-shadow: 0 12px 14px #00000026;
+        animation: menu-enter 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
     }
     .nav-links a {
         min-height: 45px;
@@ -1588,11 +1619,6 @@ main:focus {
     .nav-links a[aria-current] {
         background: var(--sage);
         border-radius: 4px;
-    }
-    .nav-links a[aria-current]::after {
-        left: auto;
-        right: 16px;
-        top: 20px;
     }
     .hero {
         grid-template-columns: 1fr;
